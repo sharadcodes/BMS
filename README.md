@@ -1,7 +1,7 @@
 ## BANK MANAGEMENT SYSTEM
 ### CURRENTLY UNDER DEVELOPMEMT
 #### COMPILED AND RUN USING `Code::Blocks` IDE
-```markdown
+```c
 
 #include<windows.h>
 #include<stdio.h>
