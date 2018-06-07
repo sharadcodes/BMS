@@ -16,7 +16,7 @@ int dr(void);      /*     FOR DEBITING AN ACCOUNT              */
 int cr(void);      /*     FOR CREDITING AN ACCOUNT             */
 int sd(void);      /*     FOR SHOWING DETAINS OF AN ACCOUNT    */
 
-// UNIVERSAL VARIABLES
+// GLOBAL VARIABLES
 
 long double sub_bal;
 char h_name[30],h_ads[100];
