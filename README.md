@@ -1,11 +1,9 @@
 ## BANK MANAGEMENT SYATEM
 
 ```markdown
-Syntax highlighted code block
+**SYNTAX**
 
-**Bold** and _Italic_ and `Code` text
-
-'
+`
 #include<windows.h>
 #include<stdio.h>
 #include<conio.h>
@@ -100,9 +98,7 @@ case 5:
     printf("\t\t\t\t\t2: REMOVE ACCOUNT\n");
     break;
     }
-}
-}
-'
-
-[Link](url) and ![Image](src)
+  }
+ }
+`
 ```
