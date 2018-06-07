@@ -1,5 +1,6 @@
 ## BANK MANAGEMENT SYSTEM
-> CURRENTLY UNDER DEVELOPMEMT COMPILED AND RUN USING `Code::Blocks` IDE
+> :red_circle: CURRENTLY UNDER DEVELOPMEMT :red_circle: 
+> :warning: Use `Code::Blocks` IDE for this project :warning:
 
 ```c
 
