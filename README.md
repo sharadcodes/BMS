@@ -1,39 +1,36 @@
 ## BANK MANAGEMENT SYATEM
 
 ```markdown
-**SYNTAX**
-
-`
-#include<windows.h>
-#include<stdio.h>
-#include<conio.h>
-#include<malloc.h>
-#include<stdlib.h>
-typedef struct
-{
-    char name[30];
-    char ac_no[15];
-    float balance;
-    float amt;
-    int date;
-}bank;
-bank clients[100];
-void main()
-{
-    int option;
-    printf("\n\n\n\n\n\t\t\t\t\t***************************************\n");
-    printf("\t\t\t\t\tWELCOME TO MY BANK MANAGEMENT SOFTWARE\n\n");
-    printf("\t\t\t\t\t*************************************************\n");
-    printf("\t\t\t\t\tENTER THE CHOICE FROM THE OPTIONS BELOW AND PRESS ENTER \n");
-    printf("\t\t\t\t\t*************************************************\n\n");
-    printf("\t\t\t\t\t1: ADD/REMOVE Account(s)\n");
-    printf("\t\t\t\t\t2: Debit/Credit Account\n");
-    printf("\t\t\t\t\t3: Make a new Account\n");
-    printf("\t\t\t\t\t4: CHECK BALANCE in Account\n");
-    printf("\t\t\t\t\t5: CHECK DETAILS\n");
-    printf("\n\t\t\t\t\tENTER YOUR CHOICE : ");
-    scanf("%d",&option);
-    switch(option)
+`#include<windows.h>`
+`#include<stdio.h>`
+`#include<conio.h>`
+`#include<malloc.h>`
+`#include<stdlib.h>`
+`typedef struct`
+`{`
+`    char name[30];`
+`    char ac_no[15];`
+`    float balance;`
+`    float amt;`
+`    int date;`
+`}bank;`
+`bank clients[100];`
+`void main()`
+`{`
+`    int option;`
+`    printf("\n\n\n\n\n\t\t\t\t\t***************************************\n");`
+`    printf("\t\t\t\t\tWELCOME TO MY BANK MANAGEMENT SOFTWARE\n\n");`
+`    printf("\t\t\t\t\t*************************************************\n");`
+`    printf("\t\t\t\t\tENTER THE CHOICE FROM THE OPTIONS BELOW AND PRESS ENTER \n");`
+`    printf("\t\t\t\t\t*************************************************\n\n");`
+`    printf("\t\t\t\t\t1: ADD/REMOVE Account(s)\n");`
+`    printf("\t\t\t\t\t2: Debit/Credit Account\n");`
+`    printf("\t\t\t\t\t3: Make a new Account\n");`
+`    printf("\t\t\t\t\t4: CHECK BALANCE in Account\n");`
+`    printf("\t\t\t\t\t5: CHECK DETAILS\n");`
+`    printf("\n\t\t\t\t\tENTER YOUR CHOICE : ");`
+`    scanf("%d",&option);`
+`    switch(option)`
     {
 case 1:
     {
@@ -100,5 +97,4 @@ case 5:
     }
   }
  }
-`
 ```
