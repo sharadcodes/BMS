@@ -3,7 +3,6 @@
 ### :warning: Use `Code::Blocks` IDE for this project :warning:
 
 ```c
-
 #include<windows.h>
 #include<stdio.h>
 #include<conio.h>
