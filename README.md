@@ -1,37 +1,108 @@
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/cwithsharad/cpp_minor_projects/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## BANK MANAGEMENT SYATEM
 
 ```markdown
 Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
 **Bold** and _Italic_ and `Code` text
+
+'
+#include<windows.h>
+#include<stdio.h>
+#include<conio.h>
+#include<malloc.h>
+#include<stdlib.h>
+typedef struct
+{
+    char name[30];
+    char ac_no[15];
+    float balance;
+    float amt;
+    int date;
+}bank;
+bank clients[100];
+void main()
+{
+    int option;
+    printf("\n\n\n\n\n\t\t\t\t\t***************************************\n");
+    printf("\t\t\t\t\tWELCOME TO MY BANK MANAGEMENT SOFTWARE\n\n");
+    printf("\t\t\t\t\t*************************************************\n");
+    printf("\t\t\t\t\tENTER THE CHOICE FROM THE OPTIONS BELOW AND PRESS ENTER \n");
+    printf("\t\t\t\t\t*************************************************\n\n");
+    printf("\t\t\t\t\t1: ADD/REMOVE Account(s)\n");
+    printf("\t\t\t\t\t2: Debit/Credit Account\n");
+    printf("\t\t\t\t\t3: Make a new Account\n");
+    printf("\t\t\t\t\t4: CHECK BALANCE in Account\n");
+    printf("\t\t\t\t\t5: CHECK DETAILS\n");
+    printf("\n\t\t\t\t\tENTER YOUR CHOICE : ");
+    scanf("%d",&option);
+    switch(option)
+    {
+case 1:
+    {
+    system("cls");
+    printf("\n\n\n\n\n\t\t\t\t\t*********************\n");
+    printf("\t\t\t\t\tADD/REMOVE Account(s)\n");
+    printf("\t\t\t\t\t*********************\n");
+    printf("\t\t\t\t\t1: ADD ACCOUNT\n");
+    printf("\t\t\t\t\t2: REMOVE ACCOUNT\n");
+    break;
+    }
+case 2:
+    {
+    system("cls");
+    printf("\n\n\n\n\n\t\t\t\t\t*********************\n");
+    printf("\t\t\t\t\tDebit/Credit Account \n");
+    printf("\t\t\t\t\t*********************\n");
+    printf("\t\t\t\t\t1: DEBIT\n");
+    printf("\t\t\t\t\t2: CREDIT\n");
+    break;
+    }
+case 3:
+    {
+    system("cls");
+    printf("\n\n\n\n\n\t\t\t\t\t*********************\n");
+    printf("\t\t\t\t\t Make a new Account \n");
+    printf("\t\t\t\t\t*********************\n");
+    printf("\t\t\t\t\t1: SAVINGS\n");
+    printf("\t\t\t\t\t1: CURRENT\n");
+    scanf("%d",&option);
+    switch(option)
+    {
+    case 1:
+        {
+        printf("Enter the ACCOUNT NUMBER : ");
+        scanf("%s",ac_no);
+        printf("Enter the NAME OF HOLDER: ");
+        scanf("%s",name);
+        printf("Enter the BALANCE : ");
+        scanf("%f",&balance);
+        }
+    }
+    break;
+    }
+case 4:
+    {
+    system("cls");
+    printf("\n\n\n\n\n\t\t\t\t\t*********************\n");
+    printf("\t\t\t\t\tCHECK BALANCE in Account\n");
+    printf("\t\t\t\t\t*********************\n");
+    printf("\t\t\t\t\t1: ADD ACCOUNT\n");
+    printf("\t\t\t\t\t2: REMOVE ACCOUNT\n");
+    break;
+    }
+case 5:
+    {
+    system("cls");
+    printf("\n\n\n\n\n\t\t\t\t\t*********************\n");
+    printf("\t\t\t\t\t CHECK DETAILS \n");
+    printf("\t\t\t\t\t*********************\n");
+    printf("\t\t\t\t\t1: ADD ACCOUNT\n");
+    printf("\t\t\t\t\t2: REMOVE ACCOUNT\n");
+    break;
+    }
+}
+}
+'
 
 [Link](url) and ![Image](src)
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/cwithsharad/cpp_minor_projects/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
