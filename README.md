@@ -3,7 +3,7 @@
 ### :red_circle: CURRENTLY UNDER DEVELOPMEMT :red_circle: 
 ### :warning: Use `Code::Blocks` IDE for this project :warning:
 
-```C
+```c
 #include<windows.h>
 #include<stdio.h>
 #include<conio.h>
