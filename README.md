@@ -1,8 +1,8 @@
-## BANK MANAGEMENT SYATEM
+## BANK MANAGEMENT SYSTEM
+### SOURCE CODE
+#### COMPILED AND RUN USING `Code::Blocks` IDE
 
-```markdown
-
-#include<windows.h>
+`#include<windows.h>
 #include<stdio.h>
 #include<conio.h>
 #include<malloc.h>
@@ -97,5 +97,4 @@ case 5:
     break;
     }
   }
- }
-```
+ }`
