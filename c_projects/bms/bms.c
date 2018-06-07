@@ -147,7 +147,7 @@ int sd(void)
     else
         goto a;
     a:
-    printf("\t\t\t\t\tDETAILS OF A\c %d \n",ac_no);
+    printf("\t\t\t\t\tDETAILS OF A\\c %d \n",ac_no);
     LI
     SSP
     printf("ACCOUNT HOLDER NAME : %s\n",h_name);
