@@ -28,7 +28,8 @@ int sd(long double);      //     FOR SHOWING DETAINS OF AN ACCOUNT
 long double sub_bal;           // FOR STORING THE BALANCE DEPOSITED
 char h_name[30],h_ads[100];    // FOR STORING THE HOLDER NAME AND ADDRESS
 long double ac_no;             // FOR STORING THE ACCOUNT NUMBER
-static int flag=0;             // TO TEST THE CONITION THAT THE FUNCTION sd() IS CALLED FROM THE new_ac() FUNCTION OR NOT
+static int flag=0;             /*  TO TEST THE CONITION THAT THE FUNCTION sd() 
+                                  IS CALLED FROM THE new_ac() FUNCTION OR NOT   */
 
 
 /* MAIN FUNCTION HAS ONLY THE INTERFACE AND THE SWITCH STATEMENTS FOR CHOOSING
