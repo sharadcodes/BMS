@@ -239,5 +239,5 @@ int sd(long double search_ac)
     CLS
     main();
 }
-	//FUNCTION FOR SHOWING DETAILS OF AN ACCOUNT ENDS
+//FUNCTION FOR SHOWING DETAILS OF AN ACCOUNT ENDS
 ```
