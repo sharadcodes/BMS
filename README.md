@@ -20,7 +20,7 @@
 int new_ac(void);         //     FOR ADDING A NEW ACCOUNT          
 int clo_ac(void);         //     FOR CLOSING AN ACCOUNT            
 int dr(void);             //     FOR DEBITING AN ACCOUNT           
-int cr(void);  		      //     FOR CREDITING AN ACCOUNT          
+int cr(void);             //     FOR CREDITING AN ACCOUNT          
 int sd(long double);      //     FOR SHOWING DETAINS OF AN ACCOUNT 
 
 // GLOBAL VARIABLES
