@@ -20,7 +20,7 @@ int dr(void);             /*     FOR DEBITING AN ACCOUNT            */
 int cr(void);             /*     FOR CREDITING AN ACCOUNT           */
 int sd(long double);      /*     FOR SHOWING DETAINS OF AN ACCOUNT  */
 
-// GLOBAL VARIABLES
+/* GLOBAL VARIABLES */
 
 long double sub_bal;           /* FOR STORING THE BALANCE DEPOSITED             */
 char h_name[30],h_ads[100];    /* FOR STORING THE HOLDER NAME AND ADDRESS       */
