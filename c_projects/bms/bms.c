@@ -215,7 +215,7 @@ int sd(long double search_ac)
         }
     if(flag==2)
         {SIDETAB
-        printf("\   ACCOUNT MODIFIED SUCCESSFULLY !!! \n");
+        printf("\\  ACCOUNT MODIFIED SUCCESSFULLY !!! \n");
         ac_no=search_ac;
         }
     else if(flag==0)
