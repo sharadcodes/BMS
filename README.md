@@ -1,6 +1,6 @@
 # BANK MANAGEMENT SOFTWARE
 ## PROGRAMMING LANGUAGE USED : ANSI C
-### :red_circle: CURRENTLY UNDER DEVELOPMEMT :red_circle: 
+### :red_circle: CURRENTLY UNDER DEVELOPMEMT :red_circle:
 ### :warning: Use `Code::Blocks` IDE for this project :warning:
 
 ```c
@@ -9,7 +9,6 @@
 #include<conio.h>
 #include<malloc.h>
 #include<stdlib.h>
-
 #define HS printf("\t\t\t\t\t#########################################################\n");
 #define LI printf("\n\t\t\t\t\t=========================================================\n\n");
 #define NLI printf("\n\n\n\n\n\t\t\t\t\t========================================================\n\n");
@@ -21,14 +20,14 @@ int new_ac(void);         //     FOR ADDING A NEW ACCOUNT
 int clo_ac(void);         //     FOR CLOSING AN ACCOUNT            
 int dr(void);             //     FOR DEBITING AN ACCOUNT           
 int cr(void);             //     FOR CREDITING AN ACCOUNT          
-int sd(long double);      //     FOR SHOWING DETAINS OF AN ACCOUNT 
+int sd(long double);      //     FOR SHOWING DETAINS OF AN ACCOUNT
 
 // GLOBAL VARIABLES
 
 long double sub_bal;           // FOR STORING THE BALANCE DEPOSITED
 char h_name[30],h_ads[100];    // FOR STORING THE HOLDER NAME AND ADDRESS
 long double ac_no;             // FOR STORING THE ACCOUNT NUMBER
-static int flag=0;             /*  TO TEST THE CONITION THAT THE FUNCTION sd() 
+static int flag=0;             /*  TO TEST THE CONITION THAT THE FUNCTION sd()
                                   IS CALLED FROM THE new_ac() FUNCTION OR NOT   */
 
 
@@ -202,7 +201,7 @@ int cr(void)
     system("cls");
     NLI
 }
-//FUNCTION FOR CREDITING AN ACCOUNT ENDS 
+//FUNCTION FOR CREDITING AN ACCOUNT ENDS
 
 
 //FUNCTION FOR SHOWING DETAILS OF AN ACCOUNT STARTS
