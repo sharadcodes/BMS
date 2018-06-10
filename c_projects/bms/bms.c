@@ -1,6 +1,7 @@
 #include<windows.h>
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 /* MACRO DEFINITIONS FOR PRINTING LINENE AND TABS FOR EASE OF USE */
 
 #define HLINE printf("\t\t\t\t\t#########################################################\n");
@@ -13,23 +14,29 @@
 void close(void);
 void acc(void);
 void show(void);
+void login(void);
 void credits(void);
 
 /* STRUCTURES FOR ACCOUNT DETAILS */
 
 typedef struct
 {
-  int a_number;                    /* FOR STORING THE ACCOUNT NUMBER                */
-  char name[30];
-  int m_no;               /* FOR STORING THE HOLDER NAME                   */
-  char address[100];               /* FOR STORING THE HOLDER ADDRESS                */
-  int balance;           /* FOR STORING THE BALANCE DEPOSITED             */
+  int a_number;                   /* FOR STORING THE ACCOUNT NUMBER                */
+  char name[30];				  /* FOR STORING THE ACCOUNT NUMBER                */
+  int m_no;     		          /* FOR STORING THE HOLDER NAME                   */
+  char address[100];              /* FOR STORING THE HOLDER ADDRESS                */
+  int balance;         			  /* FOR STORING THE BALANCE DEPOSITED             */
 }accounts;
 accounts records;
 
 /* FILE POINTER */
 
 FILE *ptr;
+
+/* GLOBAL VARIABLE FOR CHECKIN THE USER LOGIN */
+
+int loginflag=0;
+
 
 /* MAIN FUNCTION HAS ONLY THE INTERFACE AND THE SWITCH STATEMENTS FOR CHOOSING
    THE OPTIONS AFTER CHOOSING THE OPTIONS THE RESPECTED FUNCTIONS ARE CALLED   */
@@ -39,6 +46,7 @@ FILE *ptr;
 void main()
 {
     int op;
+    login();
     system("color e");
     options:
     NEW
@@ -56,15 +64,15 @@ void main()
     scanf("%d",&op);
     switch(op)
     {
-    case 1: acc();
+    case 1: 	acc();
         break;
-  //  case 2:
-    //    break;
-    case 3: show();
+	case 2:
         break;
-    //case 4:
-      //  break;
-    case 0: credits();
+    case 3: 	show();
+        break;
+    case 4:
+		break;
+    case 0: 	credits();
         break;
     }
     return 0;
@@ -72,9 +80,8 @@ void main()
 /* END OF main() FUNCTION */
 
 
-
-
 /* FUNCTION FOR SHOWING DETAILS OF AN ACCOUNT STARTS */
+
 void show()
 {
     recheck:
@@ -161,7 +168,8 @@ void show()
 
 
 
-// ADD OR REMOVE FUNCTION
+/* ADD OR REMOVE FUNCTION */
+
 void acc()
 {
     int ac_choice;
@@ -182,7 +190,8 @@ void acc()
     scanf("%d",&ac_choice);
 
 
- // NEW ACC CHOICE BLOCK
+ /* NEW ACC CHOICE BLOCK */
+ 
             int op;
             if(ac_choice==1)
     {
@@ -247,7 +256,7 @@ void acc()
     }
 
 
-//REMOVING AN ACCOUNT BLOCK
+/* REMOVING AN ACCOUNT BLOCK */
 
 else if(ac_choice==2)
 
@@ -256,7 +265,7 @@ else if(ac_choice==2)
     }
 
 
-// RETURNING TO MAIN BLOCK
+/* RETURNING TO MAIN BLOCK */
 
 else if(ac_choice==9)
     {
@@ -265,7 +274,7 @@ else if(ac_choice==9)
     main();
     }
 
-// EXITING THE PROGRAM
+/*  EXITING THE PROGRAM */
     else
     {
         credits();
@@ -275,9 +284,8 @@ else if(ac_choice==9)
 
 
 
+/* CREDITS */
 
-
-//CREDITS
 void credits()
 {
             CLS
@@ -290,4 +298,47 @@ void credits()
             SIDETAB
             printf("EXITING .................................................\n\n");
             exit(0);
+}
+
+
+
+/* LOGIN WINDOWS FUNCTION */
+
+void login()
+{
+    if(loginflag==0)
+    {
+    loginflag=1;
+    char pass[10],new_pass[10],old_pass[10]="user1";
+    int menu_in,sec_key=911;
+    int in;
+    CLS
+    system("color 0F");
+    redo:
+    NEW
+    printf("\t\t\t\t\t\t WELCOME TO X BANK MANAGEMENT SOFTWARE\n");
+    printf("\n\t\t\t\t\tENTER THE LOGIN PASSWORD AND PRESS ENTER \n");
+    LINE
+    printf("\n\t\t\t\t\tENTER YOUR PASSWORD : ");
+    scanf("%s",&pass);
+    if(strcmp(pass,old_pass)==0)
+    CLS
+    else
+    {
+    system("color FC");
+    CLS
+    NEW
+    SIDETAB
+    printf("          PASSWORD DID NOT MATCHED !!!!  EXITING\n\n");
+    printf("\t\t\t\t\t\t     X  BANK MANAGEMENT SOFTWARE\n\n");
+    printf("\t\t\t\t\t\t   MADE BY : SHARAD RAJ SINGH MAURYA\n");
+    printf("\t\t\t\t\t       CREDITS : MYSELF BEACUSE I MADE IT ALONE :)\n");
+    LINE
+    SIDETAB
+    printf("EXITING .................................................\n\n");
+    exit(0);
+    }
+    }
+    else
+    CLS;
 }
