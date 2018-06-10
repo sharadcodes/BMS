@@ -10,7 +10,7 @@
 #define SIDETAB printf("\t\t\t\t\t");
 #define CLS system("cls");
 
-
+void lists(void);
 void close(void);
 void acc(void);
 void show(void);
@@ -56,8 +56,9 @@ void main()
     LINE
     printf("\t\t\t\t\t1: ADD OR REMOVE ACCOUNT\n");
     printf("\t\t\t\t\t2: DEBIT ACCOUNT OR CREDIT ACCOUNT\n");
-    printf("\t\t\t\t\t3: SHOW DETAILS OF ACCOUNT\n");
-    printf("\t\t\t\t\t4: MODIFY AN ACCOUNT\n\n");
+    printf("\t\t\t\t\t3: SHOW DETAILS OF AN ACCOUNT\n");
+    printf("\t\t\t\t\t4: SHOW DETAILS OF ALL ACCOUNTS\n");
+    printf("\t\t\t\t\t5: MODIFY AN ACCOUNT\n\n");
     HLINE
     printf("\t\t\t\t\t0: EXIT \n\n");
     printf("\n\t\t\t\t\tENTER YOUR CHOICE : ");
@@ -70,7 +71,9 @@ void main()
         break;
     case 3: 	show();
         break;
-    case 4:
+    case 4:     lists();
+        break;
+    case 5:
 		break;
     case 0: 	credits();
         break;
@@ -191,7 +194,7 @@ void acc()
 
 
  /* NEW ACC CHOICE BLOCK */
- 
+
             int op;
             if(ac_choice==1)
     {
@@ -205,7 +208,7 @@ void acc()
                 SIDETAB
                 printf("          DATABASE FILE NOT FOUND EXITING !!!!!\n");
                 LINE
-                exit(0);
+                credits();
             }
             else
             printf("\t\t\t\t\t\tENTER THE DETAILS BELOW AND PRESS ENTER\n");
@@ -293,10 +296,14 @@ void credits()
             system("color 0F");
             printf("\t\t\t\t\t\t     X  BANK MANAGEMENT SOFTWARE\n\n");
             printf("\t\t\t\t\t\t   MADE BY : SHARAD RAJ SINGH MAURYA\n");
+            printf("\t\t\t\t\t\t    EMAIL ID : mauryablog@gmail.com \n");
+            printf("\t\t\t\t\t\t    PROJECT STARTED ON : 08/06/2018 \n");
             printf("\t\t\t\t\t       CREDITS : MYSELF BEACUSE I MADE IT ALONE :)\n");
             LINE
             SIDETAB
             printf("EXITING .................................................\n\n");
+            getchar();
+            getchar();
             exit(0);
 }
 
@@ -325,20 +332,70 @@ void login()
     CLS
     else
     {
-    system("color FC");
+    system("color 0C");
     CLS
     NEW
     SIDETAB
     printf("          PASSWORD DID NOT MATCHED !!!!  EXITING\n\n");
     printf("\t\t\t\t\t\t     X  BANK MANAGEMENT SOFTWARE\n\n");
     printf("\t\t\t\t\t\t   MADE BY : SHARAD RAJ SINGH MAURYA\n");
+    printf("\t\t\t\t\t\t    EMAIL ID : mauryablog@gmail.com \n");
+    printf("\t\t\t\t\t\t    PROJECT STARTED ON : 08/06/2018 \n");
     printf("\t\t\t\t\t       CREDITS : MYSELF BEACUSE I MADE IT ALONE :)\n");
     LINE
     SIDETAB
     printf("EXITING .................................................\n\n");
+    getchar();
+    getchar();
     exit(0);
     }
     }
     else
     CLS;
 }
+
+
+
+
+/* FOR SHOWING ALL ACCOUNTS */
+void lists()
+{
+    recheck:
+    ptr=fopen("records.txt","r");
+    int given_no,flag;
+    CLS
+    system("color B");
+    NEW
+    printf("\t\t\t\t\t\t   WELCOME TO ACCOUNTS LIST WIZARD   \n");
+    LINE
+    while(fscanf(ptr,"%d %s %d %s %d",&records.a_number,&records.name,&records.m_no,&records.address,&records.balance)!=EOF)
+    {
+    flag=1;
+    LINE
+    SIDETAB
+    printf("ACCOUNT NUMBER      : %d\n",records.a_number);
+    SIDETAB
+    printf("ACCOUNT HOLDER NAME : %s\n",records.name);
+    SIDETAB
+    printf("CONTACT NUMBER      : %d\n",records.m_no);
+    SIDETAB
+    printf("ADDRESS             : %s\n",records.address);
+    SIDETAB
+    printf("BALANCE             : %d\n",records.balance);
+    }
+    fclose(ptr);
+    SIDETAB
+    printf("1: MAIN MENU\n");
+    SIDETAB
+    printf("0: EXIT\n\n");
+    SIDETAB
+    printf("ENTER YOUR CHOICE : ");
+    int x;
+    scanf("%d",&x);
+    if(x==1)
+        { CLS
+          main(); }
+    else
+        credits();
+    }
+/* ALL ACC FUN ENDS */
