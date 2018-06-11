@@ -1,18 +1,3 @@
-</html>
-</body>
-</pre>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>C WITH SHARAD</title>
-</head>
-<body>
-<h1>BANK MANAGEMENT SOFTWARE</h1>
-<h2>PROGRAMMING LANGUAGE USED : ANSI C</h2>
-<h2>CURRENTLY UNDER DEVELOPMEMT</h2>
-</h3>Use Code::Blocks IDE for this project</h3>
-<pre>
-<pre>
 #include<windows.h>
 #include<stdio.h>
 #include<stdlib.h>
@@ -67,7 +52,7 @@ void main()
     system("color e");
     options:
     NEW
-    printf("\t\t\t\t\t\t WELCOME TO X BANK MANAGEMENT SOFTWARE\n");
+    printf("\t\t\t\t\t\t       X BANK MANAGEMENT SOFTWARE\n");
     LINE
     printf("\t\t\t\t\tENTER THE CHOICE FROM THE OPTIONS BELOW AND PRESS ENTER \n");
     LINE
@@ -110,7 +95,7 @@ void show()
     CLS
     system("color B");
     NEW
-    printf("\t\t\t\t\t\t   WELCOME TO ACCOUNT SEARCH WIZARD   \n");
+    printf("\t\t\t\t\t\t         ACCOUNT SEARCH WIZARD   \n");
     LINE
     printf("\t\t\t\t\tENTER THE ACCOUNT NUMBER BELOW AND PRESS THE ENTER KEY  \n");
     LINE
@@ -340,7 +325,8 @@ void login()
     system("color 0F");
     redo:
     NEW
-    printf("\t\t\t\t\t\t WELCOME TO X BANK MANAGEMENT SOFTWARE\n");
+    printf("\t\t\t\t\t\t      X BANK MANAGEMENT SOFTWARE\n");
+    printf("\t\t\t\t\t\t\t   LOGIN WINDOW\n");
     printf("\n\t\t\t\t\tENTER THE LOGIN PASSWORD AND PRESS ENTER \n");
     LINE
     printf("\n\t\t\t\t\tENTER YOUR PASSWORD : ");
@@ -383,8 +369,7 @@ void lists()
     CLS
     system("color B");
     NEW
-    printf("\t\t\t\t\t\t   WELCOME TO ACCOUNTS LIST WIZARD   \n");
-    LINE
+    printf("\t\t\t\t\t\t         ACCOUNTS LIST WIZARD   \n");
     while(fscanf(ptr,"%d %s %d %s %d",&records.a_number,&records.name,&records.m_no,&records.address,&records.balance)!=EOF)
     {
     flag=1;
@@ -401,6 +386,7 @@ void lists()
     printf("BALANCE             : %d\n",records.balance);
     }
     fclose(ptr);
+    HLINE
     SIDETAB
     printf("1: MAIN MENU\n");
     SIDETAB
@@ -415,7 +401,7 @@ void lists()
     else
         credits();
     }
-/* DISPLAY ALL ACC FUN ENDS */
+/* ALL ACC FUN ENDS */
 
 
 /* LOADING */
