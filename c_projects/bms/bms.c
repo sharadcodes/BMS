@@ -1,3 +1,18 @@
+</html>
+</body>
+</pre>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>C WITH SHARAD</title>
+</head>
+<body>
+<h1>BANK MANAGEMENT SOFTWARE</h1>
+<h2>PROGRAMMING LANGUAGE USED : ANSI C</h2>
+<h2>CURRENTLY UNDER DEVELOPMEMT</h2>
+</h3>Use Code::Blocks IDE for this project</h3>
+<pre>
+<pre>
 #include<windows.h>
 #include<stdio.h>
 #include<stdlib.h>
@@ -400,7 +415,7 @@ void lists()
     else
         credits();
     }
-/* ALL ACC FUN ENDS */
+/* DISPLAY ALL ACC FUN ENDS */
 
 
 /* LOADING */
@@ -409,7 +424,6 @@ void loading()
 {
     if(loginflag==0)
     {
-    loginflag=1;
     int i;
     system("color 0F");
     CLS
