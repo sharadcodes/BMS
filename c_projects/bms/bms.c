@@ -449,8 +449,7 @@ void credits()
             LINE
             SIDETAB
             printf("EXITING .................................................\n\n");
-            getchar();
-            getchar();
+            sleep(4);
             exit(0);
 }
 
@@ -493,8 +492,7 @@ void login()
     LINE
     SIDETAB
     printf("EXITING .................................................\n\n");
-    getchar();
-    getchar();
+    sleep(4);
     exit(0);
     }
     }
