@@ -1,3 +1,6 @@
+</html>
+</body>
+</pre>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,16 +31,17 @@ void acc(void);
 void show(void);
 void login(void);
 void credits(void);
+void loading(void);
 
 /* STRUCTURES FOR ACCOUNT DETAILS */
 
 typedef struct
 {
   int a_number;                   /* FOR STORING THE ACCOUNT NUMBER                */
-  char name[30];                  /* FOR STORING THE ACCOUNT NUMBER                */
-  int m_no;                       /* FOR STORING THE HOLDER NAME                   */
+  char name[30];				  /* FOR STORING THE ACCOUNT NUMBER                */
+  int m_no;     		          /* FOR STORING THE HOLDER NAME                   */
   char address[100];              /* FOR STORING THE HOLDER ADDRESS                */
-  int balance;                    /* FOR STORING THE BALANCE DEPOSITED             */
+  int balance;         			  /* FOR STORING THE BALANCE DEPOSITED             */
 }accounts;
 accounts records;
 
@@ -58,6 +62,7 @@ int loginflag=0;
 void main()
 {
     int op;
+    loading();
     login();
     system("color e");
     options:
@@ -77,17 +82,17 @@ void main()
     scanf("%d",&op);
     switch(op)
     {
-    case 1:     acc();
+    case 1: 	acc();
         break;
-    case 2:
+	case 2:
         break;
-    case 3:     show();
+    case 3: 	show();
         break;
     case 4:     lists();
         break;
     case 5:
-        break;
-    case 0:     credits();
+		break;
+    case 0: 	credits();
         break;
     }
     return 0;
@@ -410,7 +415,41 @@ void lists()
     else
         credits();
     }
-/* ALL ACC FUN ENDS */
-</pre>
-</body>
-</html>
+	
+/* DISPLAY ALL ACC FUN ENDS */
+
+
+/* LOADING */
+
+void loading()
+{
+    if(loginflag==0)
+    {
+    loginflag=1;
+    int i;
+    system("color 0F");
+    CLS
+    NEW
+    printf("\t\t\t\t\t\t WELCOME TO X BANK MANAGEMENT SOFTWARE\n");
+    LINE
+    SIDETAB
+    printf("\t\t\t   _____");
+    SIDETAB
+    printf("\t\t\t\t\t\t\t\t   LOADING ");
+    for(i=5;i>=0;i--)
+    {
+    if(i==0)
+    {
+        printf("\n\n\t\t\t\t\t\t      LOADED SUCCESFULY !!!!");
+        sleep(1);
+    }
+    else
+    {
+        sleep(1);
+        printf("%c",219);
+    }
+    }
+    }
+    else
+    CLS
+}

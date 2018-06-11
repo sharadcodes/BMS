@@ -16,6 +16,7 @@ void acc(void);
 void show(void);
 void login(void);
 void credits(void);
+void loading(void);
 
 /* STRUCTURES FOR ACCOUNT DETAILS */
 
@@ -46,6 +47,7 @@ int loginflag=0;
 void main()
 {
     int op;
+    loading();
     login();
     system("color e");
     options:
@@ -399,3 +401,39 @@ void lists()
         credits();
     }
 /* ALL ACC FUN ENDS */
+
+
+/* LOADING */
+
+void loading()
+{
+    if(loginflag==0)
+    {
+    loginflag=1;
+    int i;
+    system("color 0F");
+    CLS
+    NEW
+    printf("\t\t\t\t\t\t WELCOME TO X BANK MANAGEMENT SOFTWARE\n");
+    LINE
+    SIDETAB
+    printf("\t\t\t   _____");
+    SIDETAB
+    printf("\t\t\t\t\t\t\t\t   LOADING ");
+    for(i=5;i>=0;i--)
+    {
+    if(i==0)
+    {
+        printf("\n\n\t\t\t\t\t\t      LOADED SUCCESFULY !!!!");
+        sleep(1);
+    }
+    else
+    {
+        sleep(1);
+        printf("%c",219);
+    }
+    }
+    }
+    else
+    CLS
+}
