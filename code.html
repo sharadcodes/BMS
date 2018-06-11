@@ -42,6 +42,7 @@ typedef struct
   int m_no;     		          /* FOR STORING THE HOLDER NAME                   */
   char address[100];              /* FOR STORING THE HOLDER ADDRESS                */
   int balance;         			  /* FOR STORING THE BALANCE DEPOSITED             */
+  int a_chk;                      /* FOR STORING THE CHECKING ACCOUNT NUMBER       */
 }accounts;
 accounts records;
 
@@ -94,6 +95,14 @@ void main()
 		break;
     case 0: 	credits();
         break;
+    default:
+        {
+        SIDETAB
+        printf("ENTER A VALID OPTION !");
+        sleep(1);
+        CLS
+        goto options;
+        }
     }
     return 0;
 }
@@ -213,6 +222,7 @@ void acc()
  /* NEW ACC CHOICE BLOCK */
 
             int op;
+            acc_re:
             if(ac_choice==1)
     {
             ptr=fopen("records.txt","a+");
@@ -231,9 +241,22 @@ void acc()
             printf("\t\t\t\t\t\tENTER THE DETAILS BELOW AND PRESS ENTER\n");
             LINE
             SIDETAB
-            getchar();
             printf("ENTER ACCOUNT NUMBER       : ");
-            scanf("%d",&records.a_number);
+            scanf("%d",&records.a_chk);
+            while(fscanf(ptr,"%d %s %d %s %d",&records.a_number,&records.name,&records.m_no,&records.address,&records.balance)!=EOF)
+            {
+            if(records.a_number==records.a_chk)
+            {
+                system("color 0C");
+                SIDETAB
+                printf("ACCOUNT NUMBER ALREADY EXISTS !  PLEASE WAIT !");
+                sleep(1);
+                CLS
+                NEW
+                fclose(ptr);
+                goto acc_re;
+            }
+            }
             getchar();
             SIDETAB
             printf("ENTER ACCOUNT HOLDER NAME  : ");
@@ -248,7 +271,7 @@ void acc()
             SIDETAB
             printf("ENTER BALANCE DEPOSITED    : ");
             scanf("%d",&records.balance);
-            fprintf(ptr,"%d %s %d %s %d\n",records.a_number,records.name,records.m_no,records.address,records.balance);
+            fprintf(ptr,"%d %s %d %s %d\n",records.a_chk,records.name,records.m_no,records.address,records.balance);
             system("color a");
             printf("\n");
             HLINE
@@ -281,6 +304,128 @@ void acc()
 else if(ac_choice==2)
 
     {
+        FILE *new_data,*old_data;
+        int adeleted=0,delopt;
+        redelete:
+        system("color 0E");
+        new_data=fopen("newdata.txt","w");
+        old_data=fopen("records.txt","r");
+        CLS
+        NEW
+                if(old_data==NULL)
+                {
+                system("color 0C");
+                CLS
+                NEW
+                SIDETAB
+                printf("          DATABASE FILE NOT FOUND EXITING !!!!!\n");
+                LINE
+                sleep(1);
+                credits();
+                }
+                else if (new_data==NULL)
+                {
+                system("color 0C");
+                CLS
+                NEW
+                SIDETAB
+                printf("         NEW DATABASE FILE NOT MADE EXITING !!!!!\n");
+                LINE
+                sleep(1);
+                credits();
+                }
+        printf("\t\t\t\t\t\tENTER THE DETAILS BELOW AND PRESS ENTER\n");
+        LINE
+        SIDETAB
+        printf("ENTER ACCOUNT NUMBER       : ");
+        scanf("%d",&records.a_chk);
+        while(fscanf(old_data,"%d %s %d %s %d",&records.a_number,&records.name,&records.m_no,&records.address,&records.balance)!=EOF)
+            {
+                        if(records.a_number!=records.a_chk)
+                            {
+                                fprintf(new_data,"%d %s %d %s %d\n",records.a_number,records.name,records.m_no,records.address,records.balance);
+                            }
+                        else
+                            {
+                                adeleted=1;
+                            }
+            }
+
+                fclose(old_data);
+                fclose(new_data);
+                remove("records.txt");
+                rename("newdata.txt","records.txt");
+                if(adeleted!=1)
+                {
+                        CLS
+                        NEW
+                        SIDETAB
+                        system("color 0C");
+                        printf("\t\t ACCOUNT NOT DELETED !!!!\n");
+                        SIDETAB
+                        printf("\t\t      TRY AGAIN\n");
+                        printf("\n\n\t\t\t\t         YOU ENTERED A WRONG A/c No. OR THE A/c DOES NOT EXISTS");
+                        LINE
+                        SIDETAB
+                        printf("\t      | CHOOSE THE OPTIONS BELOW |\n\n");
+                        SIDETAB
+                        printf("1: RETRY\n");
+                        SIDETAB
+                        printf("2: MAIN MENU\n");
+                        SIDETAB
+                        printf("0: EXIT\n");
+                        SIDETAB
+                        printf("\n\t\t\t\t\tENTER YOUR CHOICE : ");
+                        scanf("%d",&delopt);
+                            if(delopt==2)
+                            {
+                                CLS;
+                                main();
+                            }
+                            else if(delopt==1)
+                            {
+                                    goto redelete;
+                            }
+                            else
+                            {
+                                credits();
+                            }
+
+                }
+                else if(adeleted!=0)
+                {
+                        adeleted=0;
+                        CLS
+                        NEW
+                        SIDETAB
+                        system("color 0A");
+                        printf("\t   ACCOUNT DELETED SUCCESSFULLY !!!!\n");
+                        LINE
+                        SIDETAB
+                        printf("\t      | CHOOSE THE OPTIONS BELOW |\n\n");
+                        SIDETAB
+                        printf("1: DELETE ANOTHER ACCOUNT\n");
+                        SIDETAB
+                        printf("2: MAIN MENU\n");
+                        SIDETAB
+                        printf("0: EXIT\n");
+                        SIDETAB
+                        printf("\n\t\t\t\t\tENTER YOUR CHOICE : ");
+                        scanf("%d",&delopt);
+                            if(delopt==2)
+                            {
+                                CLS;
+                                main();
+                            }
+                            else if(delopt==1)
+                            {
+                                    goto redelete;
+                            }
+                            else
+                            {
+                                credits();
+                            }
+                }
 
     }
 
