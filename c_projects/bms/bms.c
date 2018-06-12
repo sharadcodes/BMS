@@ -7,11 +7,7 @@
 #include<string.h>
 
 /******************** MACRO DEFINITIONS FOR PRINTING LINES AND TABS ************************/
-#define BLOCK printf("\n\t\t\t\t\t%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n\n",254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254);
-#define NBLOCK printf("\n\n\n\n\n\t\t\t\t\t%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n\n",254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254);
-#define HLINE printf("\t\t\t\t\t########################################################\n");
-#define LINE printf("\n\t\t\t\t\t========================================================\n\n");
-#define NEW printf("\n\n\n\n\n\t\t\t\t\t========================================================\n\n");
+
 #define SIDETAB printf("\t\t\t\t\t");
 #define CLS system("cls");
 
@@ -23,6 +19,67 @@ void login(void);          /* FOR THE LOGIN SCREEN                   */
 void credits(void);        /* FOR THE DISPLAY OF CREDITS ON EXIT     */
 void loading(void);        /* FOR THE LODING ANIMATION AT THE START  */
 void modify(void);         /* FOR MODIFICATION OF AN ACCOUNT DETAILS */
+void withdraw(void);       /* FOR MODIFICATION OF AN ACCOUNT DETAILS */
+void deposit(void);        /* FOR MODIFICATION OF AN ACCOUNT DETAILS */
+
+/*************************** FUNCTIONS FOR PRINTING LINES **********************************/
+
+void line(void);
+void newline(void);
+void solidline(void);
+void newsolidline(void);
+void hashline(void);
+
+void newline()
+{
+    int i;
+    printf("\n\n\n\n\n\t\t\t\t\t");
+    for(i=1;i<=57;i++)
+    {
+        printf("=");
+    }
+    printf("\n\n");
+}
+void line()
+{
+    int i;
+    printf("\n\t\t\t\t\t");
+    for(i=1;i<=57;i++)
+    {
+        printf("=");
+    }
+    printf("\n\n");
+}
+void hashline()
+{
+    int i;
+    printf("\t\t\t\t\t");
+    for(i=1;i<=57;i++)
+    {
+        printf("#");
+    }
+    printf("\n");
+}
+void newsolidline()
+{
+    int i;
+    printf("\n\n\n\n\n\t\t\t\t\t");
+    for(i=1;i<=57;i++)
+    {
+        printf("%c",254);
+    }
+    printf("\n\n");
+}
+void solidline()
+{
+    int i;
+    printf("\n\t\t\t\t\t");
+    for(i=1;i<=57;i++)
+    {
+        printf("%c",254);
+    }
+    printf("\n\n");
+}
 
 
 /*************************** STRUCTURES FOR ACCOUNT DETAILS ********************************/
@@ -59,9 +116,9 @@ int main()
     login();
     system("COLOR 0F");
     options:
-    NBLOCK
+    newsolidline();
     printf("\t\t\t\t\t\t        BANK MANAGEMENT SOFTWARE\n");
-    BLOCK
+    solidline();
     printf("\t\t\t\t\t       | ENTER THE CHOICE FROM THE OPTIONS BELOW |\n\n");
     printf("\t\t\t\t\t1: Add or Remove account\n");
     printf("\t\t\t\t\t2: Withdraw\n");
@@ -69,7 +126,8 @@ int main()
     printf("\t\t\t\t\t4: Show details of an account\n");
     printf("\t\t\t\t\t5: Show details of all accounts\n");
     printf("\t\t\t\t\t6: Modify an account\n\n");
-    HLINE
+    hashline();
+    printf("\t\t\t\t\t9: LOG OUT \n");
     printf("\t\t\t\t\t0: EXIT \n\n");
     printf("\n\t\t\t\t\tENTER YOUR CHOICE : ");
     scanf("%d",&op);
@@ -77,16 +135,23 @@ int main()
     {
     case 1: 	acc();
         break;
-	case 2:
+	case 2:     withdraw();
         break;
-    case 3:
+    case 3:     deposit();
         break;
     case 4:     show();
         break;
     case 5:     lists();
 		break;
-    case 6:
+    case 6:     modify();
 		break;
+    case 9:
+         {
+                loginflag=0;
+                login();
+                system("color 0F");
+                goto options;
+         }
     case 0: 	credits();
         break;
     default:
@@ -113,9 +178,9 @@ void show()
     int given_no,flag;
     CLS
     system("COLOR 0F");
-    NBLOCK
+    newsolidline();
     printf("\t\t\t\t\t\t         ACCOUNT SEARCH WIZARD   \n");
-    BLOCK
+    solidline();
     SIDETAB
     printf("ENTER ACCOUNT NUMBER : ");
     scanf("%d",&given_no);
@@ -160,7 +225,7 @@ void show()
     else if(flag==0)
     {
         system("color C");
-        LINE
+        line();
         SIDETAB
         printf("NO RECORD FOUND !!!!!!");
         fclose(ptr);
@@ -202,14 +267,14 @@ void acc()
 {
     int ac_choice;
     system("cls");
-    NBLOCK
+    newsolidline();
     printf("\t\t\t\t\tENTER THE CHOICE FROM THE OPTIONS BELOW AND PRESS ENTER \n");
-    BLOCK
+    solidline();
     SIDETAB
     printf("1: ADD AN ACCOUNT\n");
     SIDETAB
     printf("2: REMOVE AN ACCOUNT\n");
-    LINE
+    line();
     SIDETAB
     printf("0: EXIT\n");
     SIDETAB
@@ -226,20 +291,20 @@ void acc()
     {
             ptr=fopen("records.txt","a+");
             CLS
-            NEW
+            newline();
             if(ptr==NULL)
             {
                 CLS
                 system("color c");
-                NEW
+                newline();
                 SIDETAB
                 printf("          DATABASE FILE NOT FOUND EXITING !!!!!\n");
-                LINE
+                line();
                 credits();
             }
             else
             printf("\t\t\t\t\t\tENTER THE DETAILS BELOW AND PRESS ENTER\n");
-            LINE
+            line();
             SIDETAB
             printf("ENTER ACCOUNT NUMBER       : ");
             scanf("%d",&records.a_chk);
@@ -252,7 +317,7 @@ void acc()
                 printf("ACCOUNT NUMBER ALREADY EXISTS !  PLEASE WAIT !");
                 sleep(1);
                 CLS
-                NEW
+                newline();
                 fclose(ptr);
                 system("COLOR 0F");
                 goto acc_re;
@@ -275,14 +340,15 @@ void acc()
             fprintf(ptr,"%d %s %d %s %d\n",records.a_chk,records.name,records.m_no,records.address,records.balance);
             system("color a");
             printf("\n");
-            HLINE
-            printf("\n\t\t\t\t\t\t   ACCOUNT CREATED SUCCCESSFULLY !!!!!!\n\n");
+            printf("\n\t\t\t\t\t\t   ACCOUNT CREATED SUCCESSFULLY !!!!!!\n\n");
             fclose(ptr);
-            HLINE
-            LINE
             SIDETAB
-            printf("ENTER  0 FOR EXIT  OR  1 FOR MAIN MENU\n");
+            printf("CHOOSE THE OPTION NOW\n");
             SIDETAB
+            printf("1: MAIN MENU\n");
+            SIDETAB
+            printf("0: EXIT\n\n");
+
             printf("\n\t\t\t\t\tENTER YOUR CHOICE : ");
             scanf("%d",&op);
                 if(op==1)
@@ -313,7 +379,7 @@ else if(ac_choice==2)
         new_data=fopen("newdata.txt","w");
         old_data=fopen("records.txt","r");
         CLS
-        NEW
+        newline();
                 if(old_data==NULL)
                 {
                         fclose(old_data);
@@ -321,10 +387,10 @@ else if(ac_choice==2)
                         remove("newdata.txt");
                         system("color 0C");
                         CLS
-                        NEW
+                        newline();
                         SIDETAB
                         printf("          DATABASE FILE NOT FOUND EXITING !!!!!\n");
-                        LINE
+                        line();
                         sleep(1);
                         credits();
                 }
@@ -335,15 +401,15 @@ else if(ac_choice==2)
                     remove("newdata.txt");
                     system("color 0C");
                     CLS
-                    NEW
+                    newline();
                     SIDETAB
                     printf("         NEW DATABASE FILE NOT MADE EXITING !!!!!\n");
-                    LINE
+                    line();
                     sleep(1);
                     credits();
                 }
         printf("\t\t\t\t\t\tENTER THE DETAILS BELOW AND PRESS ENTER\n");
-        LINE
+        line();
         SIDETAB
         printf("ENTER ACCOUNT NUMBER       : ");
         scanf("%d",&records.a_chk);
@@ -366,14 +432,14 @@ else if(ac_choice==2)
                 if(adeleted!=1)
                 {
                         CLS
-                        NEW
+                        newline();
                         SIDETAB
                         system("color 0C");
                         printf("\t\t ACCOUNT NOT DELETED !!!!\n");
                         SIDETAB
                         printf("\t\t      TRY AGAIN\n");
                         printf("\n\n\t\t\t\t         YOU ENTERED A WRONG A/c No. OR THE A/c DOES NOT EXISTS");
-                        LINE
+                        line();
                         SIDETAB
                         printf("\t       | CHOOSE THE OPTION BELOW |\n\n");
                         SIDETAB
@@ -404,11 +470,11 @@ else if(ac_choice==2)
                 {
                         adeleted=0;
                         CLS
-                        NEW
+                        newline();
                         SIDETAB
                         system("color 0A");
                         printf("\t   ACCOUNT DELETED SUCCESSFULLY !!!!\n");
-                        LINE
+                        line();
                         SIDETAB
                         printf("\t       | CHOOSE THE OPTION BELOW |\n\n");
                         SIDETAB
@@ -461,14 +527,14 @@ else if(ac_choice==9)
 void credits()
 {
             CLS
-            NBLOCK
+            newsolidline();
             system("COLOR 0F");
             printf("\t\t\t\t\t\t        BANK MANAGEMENT SOFTWARE\n\n");
             printf("\t\t\t\t\t\t   MADE BY : SHARAD RAJ SINGH MAURYA\n");
             printf("\t\t\t\t\t\t    EMAIL ID : mauryablog@gmail.com \n");
             printf("\t\t\t\t\t\t    PROJECT STARTED ON : 08/06/2018 \n");
             printf("\t\t\t\t\t       CREDITS : MYSELF BEACUSE I MADE IT ALONE :)\n");
-            BLOCK
+            solidline();
             SIDETAB
             printf("EXITING .................................................\n\n");
             sleep(3);
@@ -490,9 +556,9 @@ void login()
     CLS
     system("COLOR 0F");
     redo:
-    NBLOCK
+    newsolidline();
     printf("\t\t\t\t\t\t        BANK MANAGEMENT SOFTWARE\n");
-    BLOCK
+    solidline();
     printf("\t\t\t\t\t\t\t    LOGIN WINDOW\n\n");
     printf("\n\t\t\t\t\tLOGIN PASSWORD : ");
     scanf("%s",&pass);
@@ -500,9 +566,9 @@ void login()
     {
     system("color 0A");
     CLS
-    NBLOCK
+    newsolidline();
     printf("\t\t\t\t\t\t            ACCESS GRANTED !!\n");
-    BLOCK
+    solidline();
     sleep(1);
     CLS
     }
@@ -510,11 +576,11 @@ void login()
     {
     system("color 0C");
     CLS
-    NBLOCK
+    newsolidline();
     printf("\t\t\t\t\t\t             ACCESS DENIED !!\n \n");
     SIDETAB
     printf("\t       PASSWORD DID NOT MATCHED !!!!\n");
-    BLOCK
+    solidline();
     SIDETAB
     printf("  CHOOSE THE OPTION NOW\n");
     SIDETAB
@@ -602,9 +668,9 @@ void loading()
     int i;
     system("COLOR 09");
     CLS
-    NBLOCK
+    newsolidline();
     printf("\t\t\t\t\t\t        BANK MANAGEMENT SOFTWARE\n");
-    BLOCK
+    solidline();
     printf("\t\t\t\t\t\t\t   LOADING ");
     for(i=5;i>=0;i--)
     {
@@ -623,5 +689,462 @@ void loading()
     else
     CLS
 }
+/****************************** END OF LOADING ANIMATION FUNCTION **************************/
 
-/****************************** ENDS OF LOADING ANIMATION FUNCTION *************************/
+
+/********************************** START OF WITHDRAW FUNCTION *****************************/
+void withdraw()
+{
+            FILE *newwith_data,*pwith_data;
+        int awithdraw=0,withopt;
+        rewithd:
+		awithdraw=0;
+        system("COLOR 0F");
+        newwith_data=fopen("withdraw.txt","w");
+        pwith_data=fopen("records.txt","r");
+        CLS
+        newline();
+                if(pwith_data==NULL)
+                {
+                        fclose(pwith_data);
+                        fclose(newwith_data);
+                        remove("withdraw.txt");
+                        system("color 0C");
+                        CLS
+                        newline();
+                        SIDETAB
+                        printf("          DATABASE FILE NOT FOUND EXITING !!!!!\n");
+                        line();
+                        sleep(1);
+                        credits();
+                }
+                else if (newwith_data==NULL)
+                    {
+                    fclose(pwith_data);
+                    fclose(newwith_data);
+                    remove("withdraw.txt");
+                    system("color 0C");
+                    CLS
+                    newline();
+                    SIDETAB
+                    printf("         NEW DATABASE FILE NOT MADE EXITING !!!!!\n");
+                    line();
+                    sleep(1);
+                    credits();
+                }
+        printf("\t\t\t\t\t\tENTER THE DETAILS BELOW AND PRESS ENTER\n");
+        line();
+        SIDETAB
+        int a_withdraw=0;
+        printf("ENTER ACCOUNT NUMBER       : ");
+        scanf("%d",&a_withdraw);
+        while(fscanf(pwith_data,"%d %s %d %s %d",&records.a_number,&records.name,&records.m_no,&records.address,&records.balance)!=EOF)
+            {
+                        if(records.a_number!=a_withdraw)
+                            {
+                                fprintf(newwith_data,"%d %s %d %s %d\n",records.a_number,records.name,records.m_no,records.address,records.balance);
+                            }
+                        else if(records.a_number==a_withdraw)
+                            {
+                                int wbalance=0;
+                                CLS
+                                newsolidline();
+                                SIDETAB
+                                printf("ENTER THE AMOUNT TO BE WITHDRAWN FROM %d\n",records.a_number);
+                                solidline();
+                                SIDETAB
+                                printf("ENTER THE AMOUNT : ");
+                                scanf("%d",&wbalance);
+                                records.balance=records.balance-wbalance;
+                                fprintf(newwith_data,"%d %s %d %s %d\n",records.a_number,records.name,records.m_no,records.address,records.balance);
+                                awithdraw=1;
+                            }
+            }
+
+                fclose(pwith_data);
+                fclose(newwith_data);
+                remove("records.txt");
+                rename("withdraw.txt","records.txt");
+                if(awithdraw!=1)
+                {
+                        CLS
+                        newline();
+                        SIDETAB
+                        system("color 0C");
+                        printf("\t\t  AMOUNT NOT WITHDRAWN !!!!\n");
+                        SIDETAB
+                        printf("\t\t      TRY AGAIN\n");
+                        printf("\n\n\t\t\t\t         YOU ENTERED A WRONG A/c No. OR THE A/c DOES NOT EXISTS");
+                        line();
+                        SIDETAB
+                        printf("\t       | CHOOSE THE OPTION BELOW |\n\n");
+                        SIDETAB
+                        printf("1: RETRY\n");
+                        SIDETAB
+                        printf("2: MAIN MENU\n");
+                        SIDETAB
+                        printf("0: EXIT\n");
+                        SIDETAB
+                        printf("\n\t\t\t\t\tENTER YOUR CHOICE : ");
+                        scanf("%d",&withopt);
+                            if(withopt==2)
+                            {
+                                CLS;
+                                main();
+                            }
+                            else if(withopt==1)
+                            {
+                                    goto rewithd;
+                            }
+                            else
+                            {
+                                credits();
+                            }
+
+                }
+                else if(awithdraw!=0)
+                {
+                        awithdraw=0;
+                        CLS
+                        newline();
+                        SIDETAB
+                        system("color 0A");
+                        printf("\t   AMOUNT WITHDRAWN SUCCESSFULLY !!!!\n");
+                        line();
+                        SIDETAB
+                        printf("\t       | CHOOSE THE OPTION BELOW |\n\n");
+                        SIDETAB
+                        printf("1: WITHDRAW FROM ANOTHER ACCOUNT\n");
+                        SIDETAB
+                        printf("2: MAIN MENU\n");
+                        SIDETAB
+                        printf("0: EXIT\n");
+                        SIDETAB
+                        printf("\n\t\t\t\t\tENTER YOUR CHOICE : ");
+                        scanf("%d",&withopt);
+                            if(withopt==2)
+                            {
+                                CLS;
+                                main();
+                            }
+                            else if(withopt==1)
+                            {
+                                    goto rewithd;
+                            }
+                            else
+                            {
+                                credits();
+                            }
+                }
+
+}
+/******************************** END OF WITHDRAW FUNCTION *********************************/
+
+
+
+/******************************** START OF DEPOSIT FUNCTION ********************************/
+void deposit()
+{
+        FILE *newdep_data,*pdep_data;
+        int adeposit=0,depopt;
+        redeposit:
+		adeposit=0;
+        system("COLOR 0F");
+        newdep_data=fopen("newdep.txt","w");
+        pdep_data=fopen("records.txt","r");
+        CLS
+        newline();
+                if(pdep_data==NULL)
+                {
+                        fclose(pdep_data);
+                        fclose(newdep_data);
+                        remove("newdep.txt");
+                        system("color 0C");
+                        CLS
+                        newline();
+                        SIDETAB
+                        printf("          DATABASE FILE NOT FOUND EXITING !!!!!\n");
+                        line();
+                        sleep(1);
+                        credits();
+                }
+                else if (newdep_data==NULL)
+                    {
+                    fclose(pdep_data);
+                    fclose(newdep_data);
+                    remove("newdep.txt");
+                    system("color 0C");
+                    CLS
+                    newline();
+                    SIDETAB
+                    printf("         NEW DATABASE FILE NOT MADE EXITING !!!!!\n");
+                    line();
+                    sleep(1);
+                    credits();
+                }
+        printf("\t\t\t\t\t\tENTER THE DETAILS BELOW AND PRESS ENTER\n");
+        line();
+        SIDETAB
+        int a_dep=0;
+        printf("ENTER ACCOUNT NUMBER       : ");
+        scanf("%d",&a_dep);
+        while(fscanf(pdep_data,"%d %s %d %s %d",&records.a_number,&records.name,&records.m_no,&records.address,&records.balance)!=EOF)
+            {
+                        if(records.a_number!=a_dep)
+                            {
+                                fprintf(newdep_data,"%d %s %d %s %d\n",records.a_number,records.name,records.m_no,records.address,records.balance);
+                            }
+                        else if(records.a_number==a_dep)
+                            {
+                                int newbalance=0;
+                                CLS
+                                newsolidline();
+                                SIDETAB
+                                printf("ENTER THE AMOUNT TO BE DEPOSITED IN %d\n",records.a_number);
+                                solidline();
+                                SIDETAB
+                                printf("ENTER THE AMOUNT : ");
+                                scanf("%d",&newbalance);
+                                records.balance=records.balance+newbalance;
+                                fprintf(newdep_data,"%d %s %d %s %d\n",records.a_number,records.name,records.m_no,records.address,records.balance);
+                                adeposit=1;
+                            }
+            }
+
+                fclose(pdep_data);
+                fclose(newdep_data);
+                remove("records.txt");
+                rename("newdep.txt","records.txt");
+                if(adeposit!=1)
+                {
+                        CLS
+                        newline();
+                        SIDETAB
+                        system("color 0C");
+                        printf("\t\t  AMOUNT NOT DEPOSITED !!!!\n");
+                        SIDETAB
+                        printf("\t\t      TRY AGAIN\n");
+                        printf("\n\n\t\t\t\t         YOU ENTERED A WRONG A/c No. OR THE A/c DOES NOT EXISTS");
+                        line();
+                        SIDETAB
+                        printf("\t       | CHOOSE THE OPTION BELOW |\n\n");
+                        SIDETAB
+                        printf("1: RETRY\n");
+                        SIDETAB
+                        printf("2: MAIN MENU\n");
+                        SIDETAB
+                        printf("0: EXIT\n");
+                        SIDETAB
+                        printf("\n\t\t\t\t\tENTER YOUR CHOICE : ");
+                        scanf("%d",&depopt);
+                            if(depopt==2)
+                            {
+                                CLS;
+                                main();
+                            }
+                            else if(depopt==1)
+                            {
+                                    goto redeposit;
+                            }
+                            else
+                            {
+                                credits();
+                            }
+
+                }
+                else if(adeposit!=0)
+                {
+                        adeposit=0;
+                        CLS
+                        newline();
+                        SIDETAB
+                        system("color 0A");
+                        printf("\t   AMOUNT DEPOSITED SUCCESSFULLY !!!!\n");
+                        line();
+                        SIDETAB
+                        printf("\t       | CHOOSE THE OPTION BELOW |\n\n");
+                        SIDETAB
+                        printf("1: DEPOSITE TO ANOTHER ACCOUNT\n");
+                        SIDETAB
+                        printf("2: MAIN MENU\n");
+                        SIDETAB
+                        printf("0: EXIT\n");
+                        SIDETAB
+                        printf("\n\t\t\t\t\tENTER YOUR CHOICE : ");
+                        scanf("%d",&depopt);
+                            if(depopt==2)
+                            {
+                                CLS;
+                                main();
+                            }
+                            else if(depopt==1)
+                            {
+                                    goto redeposit;
+                            }
+                            else
+                            {
+                                credits();
+                            }
+                }
+
+}
+/********************************** END OF DEPOSIT FUNCTION ********************************/
+
+
+
+/********************************* START OF MODIFY FUNCTION ********************************/
+void modify()
+{
+    FILE *mod_data,*pre_data;
+        int amodified=0,modopt;
+        remodify:
+		amodified=0;
+        system("COLOR 0F");
+        mod_data=fopen("newmod.txt","w");
+        pre_data=fopen("records.txt","r");
+        CLS
+        newline();
+                if(pre_data==NULL)
+                {
+                        fclose(pre_data);
+                        fclose(mod_data);
+                        remove("newmod.txt");
+                        system("color 0C");
+                        CLS
+                        newline();
+                        SIDETAB
+                        printf("          DATABASE FILE NOT FOUND EXITING !!!!!\n");
+                        line();
+                        sleep(1);
+                        credits();
+                }
+                else if (mod_data==NULL)
+                    {
+                    fclose(pre_data);
+                    fclose(mod_data);
+                    remove("newmod.txt");
+                    system("color 0C");
+                    CLS
+                    newline();
+                    SIDETAB
+                    printf("         NEW DATABASE FILE NOT MADE EXITING !!!!!\n");
+                    line();
+                    sleep(1);
+                    credits();
+                }
+        printf("\t\t\t\t\t\tENTER THE DETAILS BELOW AND PRESS ENTER\n");
+        line();
+        SIDETAB
+        int a_mod=0;
+        printf("ENTER ACCOUNT NUMBER       : ");
+        scanf("%d",&a_mod);
+        while(fscanf(pre_data,"%d %s %d %s %d",&records.a_number,&records.name,&records.m_no,&records.address,&records.balance)!=EOF)
+            {
+                        if(records.a_number!=a_mod)
+                            {
+                                fprintf(mod_data,"%d %s %d %s %d\n",records.a_number,records.name,records.m_no,records.address,records.balance);
+                            }
+                        else if(records.a_number==a_mod)
+                            {
+                                CLS
+                                newsolidline();
+                                SIDETAB
+                                printf("ENTER THE NEW DATA FOR %d\n",records.a_number);
+                                solidline();
+                                SIDETAB
+                                fflush(stdin);
+                                printf("ENTER ACCOUNT HOLDER NAME  : ");
+                                gets(records.name);
+                                SIDETAB
+                                printf("ENTER MOBILE NUMBER        : ");
+                                scanf("%d",&records.m_no);
+                                SIDETAB
+                                getchar();
+                                printf("ENTER ADDRESS              : ");
+                                gets(records.address);
+                                SIDETAB
+                                printf("ENTER BALANCE DEPOSITED    : ");
+                                scanf("%d",&records.balance);
+                                fprintf(mod_data,"%d %s %d %s %d\n",records.a_number,records.name,records.m_no,records.address,records.balance);
+                                amodified=1;
+                            }
+            }
+
+                fclose(pre_data);
+                fclose(mod_data);
+                remove("records.txt");
+                rename("newmod.txt","records.txt");
+                if(amodified!=1)
+                {
+                        CLS
+                        newline();
+                        SIDETAB
+                        system("color 0C");
+                        printf("\t\t ACCOUNT NOT MODIFIED !!!!\n");
+                        SIDETAB
+                        printf("\t\t      TRY AGAIN\n");
+                        printf("\n\n\t\t\t\t         YOU ENTERED A WRONG A/c No. OR THE A/c DOES NOT EXISTS");
+                        line();
+                        SIDETAB
+                        printf("\t       | CHOOSE THE OPTION BELOW |\n\n");
+                        SIDETAB
+                        printf("1: RETRY\n");
+                        SIDETAB
+                        printf("2: MAIN MENU\n");
+                        SIDETAB
+                        printf("0: EXIT\n");
+                        SIDETAB
+                        printf("\n\t\t\t\t\tENTER YOUR CHOICE : ");
+                        scanf("%d",&modopt);
+                            if(modopt==2)
+                            {
+                                CLS;
+                                main();
+                            }
+                            else if(modopt==1)
+                            {
+                                    goto remodify;
+                            }
+                            else
+                            {
+                                credits();
+                            }
+
+                }
+                else if(amodified!=0)
+                {
+                        amodified=0;
+                        CLS
+                        newline();
+                        SIDETAB
+                        system("color 0A");
+                        printf("\t   ACCOUNT MODIFIED SUCCESSFULLY !!!!\n");
+                        line();
+                        SIDETAB
+                        printf("\t       | CHOOSE THE OPTION BELOW |\n\n");
+                        SIDETAB
+                        printf("1: MODIFY ANOTHER ACCOUNT\n");
+                        SIDETAB
+                        printf("2: MAIN MENU\n");
+                        SIDETAB
+                        printf("0: EXIT\n");
+                        SIDETAB
+                        printf("\n\t\t\t\t\tENTER YOUR CHOICE : ");
+                        scanf("%d",&modopt);
+                            if(modopt==2)
+                            {
+                                CLS;
+                                main();
+                            }
+                            else if(modopt==1)
+                            {
+                                    goto remodify;
+                            }
+                            else
+                            {
+                                credits();
+                            }
+                }
+
+}
+/********************************** END OF MODIFY FUNCTION *********************************/
