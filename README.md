@@ -1,7 +1,7 @@
 # BANK MANAGEMENT SOFTWARE
 # ALL RIGHTS RESERVED
 ## PROGRAMMING LANGUAGE USED : ANSI C
-### :orange_circle: CURRENTLY FINAL TESTING STAGE :orange_circle:
+### :white_check_mark: IN FINAL TESTING STAGE :white_check_mark:
 ### :warning: Use `Code::Blocks` IDE for this project :warning:
 #### DOWNLOAD EXE HERE [DOWNLOAD](https://drive.google.com/open?id=1q5xcjj9duV-VLUooc2ttd6D9N-_tqdNh)
 
@@ -11,7 +11,6 @@
 /********************************** FILE INCLUSION *****************************************/
 #include<windows.h>
 #include<stdio.h>
-#include<stdlib.h>
 #include<string.h>
 
 /******************** MACRO DEFINITIONS FOR PRINTING LINES AND TABS ************************/
@@ -1157,3 +1156,8 @@ void modify()
 }
 /********************************** END OF MODIFY FUNCTION *********************************/
 ```
+<audio autoplay loop>
+<source src="https://cwithsharad.github.io/got.ogg" type="audio/ogg">
+<source src="https://cwithsharad.github.io/got.mp3" type="audio/mpeg">
+<source src="https://cwithsharad.github.io/got.m4a" type="audio/mpeg" />
+</audio>
