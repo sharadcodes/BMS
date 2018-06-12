@@ -13,27 +13,36 @@
 </h3>Use Code::Blocks IDE for this project</h3>
 
 <pre>
+/******************************* BANK MANAGEMENT SOFTWARE  *********************************/
+
+/********************************** FILE INCLUSION *****************************************/
+
 #include<windows.h>
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-/* MACRO DEFINITIONS FOR PRINTING LINENE AND TABS FOR EASE OF USE */
 
-#define HLINE printf("\t\t\t\t\t#########################################################\n");
-#define LINE printf("\n\t\t\t\t\t=========================================================\n\n");
+/******************** MACRO DEFINITIONS FOR PRINTING LINES AND TABS ************************/
+
+#define BLOCK printf("\n\t\t\t\t\t%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n\n",254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254);
+#define NBLOCK printf("\n\n\n\n\n\t\t\t\t\t%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n\n",254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254);
+#define HLINE printf("\t\t\t\t\t########################################################\n");
+#define LINE printf("\n\t\t\t\t\t========================================================\n\n");
 #define NEW printf("\n\n\n\n\n\t\t\t\t\t========================================================\n\n");
 #define SIDETAB printf("\t\t\t\t\t");
 #define CLS system("cls");
 
-void lists(void);
-void close(void);
-void acc(void);
-void show(void);
-void login(void);
-void credits(void);
-void loading(void);
+void lists(void);          /* FOR DISPLAYING THE LIST OF ALL ACOUNTS */
+void close(void);          /* FOR COSING AN ACCOUNT                  */
+void acc(void);            /* FOR THE ADD & REMOVE ACCOUNT MENU      */
+void show(void);           /* FOR DISPLAYING A SINGLE ACCOUNT DETAILS*/
+void login(void);          /* FOR THE LOGIN SCREEN                   */
+void credits(void);        /* FOR THE DISPLAY OF CREDITS ON EXIT     */
+void loading(void);        /* FOR THE LODING ANIMATION AT THE START  */
+void modify(void);         /* FOR MODIFICATION OF AN ACCOUNT DETAILS */
 
-/* STRUCTURES FOR ACCOUNT DETAILS */
+
+/*************************** STRUCTURES FOR ACCOUNT DETAILS ********************************/
 
 typedef struct
 {
@@ -46,37 +55,37 @@ typedef struct
 }accounts;
 accounts records;
 
-/* FILE POINTER */
+/************************************ FILE POINTER *****************************************/
 
 FILE *ptr;
 
-/* GLOBAL VARIABLE FOR CHECKIN THE USER LOGIN */
+/********************* GLOBAL VARIABLE FOR CHECKING THE USER LOGIN *************************/
 
 int loginflag=0;
 
 
-/* MAIN FUNCTION HAS ONLY THE INTERFACE AND THE SWITCH STATEMENTS FOR CHOOSING
-   THE OPTIONS AFTER CHOOSING THE OPTIONS THE RESPECTED FUNCTIONS ARE CALLED   */
+/** MAIN FUNCTION HAS ONLY THE INTERFACE AND THE SWITCH STATEMENTS FOR CHOOSING THE OPTIONS
+  *              AFTER CHOOSING THE OPTIONS THE RESPECTED FUNCTIONS ARE CALLED             */
 
-/* MAIN FUNCTION STARTS */
+/********************************* MAIN FUNCTION STARTS ************************************/
 
-void main()
+int main()
 {
     int op;
     loading();
     login();
-    system("color e");
+    system("COLOR 0F");
     options:
-    NEW
-    printf("\t\t\t\t\t\t       X BANK MANAGEMENT SOFTWARE\n");
-    LINE
-    printf("\t\t\t\t\tENTER THE CHOICE FROM THE OPTIONS BELOW AND PRESS ENTER \n");
-    LINE
-    printf("\t\t\t\t\t1: ADD OR REMOVE ACCOUNT\n");
-    printf("\t\t\t\t\t2: DEBIT ACCOUNT OR CREDIT ACCOUNT\n");
-    printf("\t\t\t\t\t3: SHOW DETAILS OF AN ACCOUNT\n");
-    printf("\t\t\t\t\t4: SHOW DETAILS OF ALL ACCOUNTS\n");
-    printf("\t\t\t\t\t5: MODIFY AN ACCOUNT\n\n");
+    NBLOCK
+    printf("\t\t\t\t\t\t        BANK MANAGEMENT SOFTWARE\n");
+    BLOCK
+    printf("\t\t\t\t\t       | ENTER THE CHOICE FROM THE OPTIONS BELOW |\n\n");
+    printf("\t\t\t\t\t1: Add or Remove account\n");
+    printf("\t\t\t\t\t2: Withdraw\n");
+    printf("\t\t\t\t\t3: Deposit\n");
+    printf("\t\t\t\t\t4: Show details of an account\n");
+    printf("\t\t\t\t\t5: Show details of all accounts\n");
+    printf("\t\t\t\t\t6: Modify an account\n\n");
     HLINE
     printf("\t\t\t\t\t0: EXIT \n\n");
     printf("\n\t\t\t\t\tENTER YOUR CHOICE : ");
@@ -87,11 +96,13 @@ void main()
         break;
 	case 2:
         break;
-    case 3: 	show();
+    case 3:
         break;
-    case 4:     lists();
+    case 4:     show();
         break;
-    case 5:
+    case 5:     lists();
+		break;
+    case 6:
 		break;
     case 0: 	credits();
         break;
@@ -106,10 +117,11 @@ void main()
     }
     return 0;
 }
-/* END OF main() FUNCTION */
+
+/********************************** END OF main() FUNCTION ********************************/
 
 
-/* FUNCTION FOR SHOWING DETAILS OF AN ACCOUNT STARTS */
+/********************* FUNCTION FOR SHOWING DETAILS OF AN ACCOUNT : STARTS ****************/
 
 void show()
 {
@@ -117,21 +129,20 @@ void show()
     ptr=fopen("records.txt","r");
     int given_no,flag;
     CLS
-    system("color B");
-    NEW
+    system("COLOR 0F");
+    NBLOCK
     printf("\t\t\t\t\t\t         ACCOUNT SEARCH WIZARD   \n");
-    LINE
-    printf("\t\t\t\t\tENTER THE ACCOUNT NUMBER BELOW AND PRESS THE ENTER KEY  \n");
-    LINE
-    printf("\t\t\t\t\tENTER ACCOUNT NUMBER HERE : ");
+    BLOCK
+    SIDETAB
+    printf("ENTER ACCOUNT NUMBER : ");
     scanf("%d",&given_no);
     while(fscanf(ptr,"%d %s %d %s %d",&records.a_number,&records.name,&records.m_no,&records.address,&records.balance)!=EOF)
     {
         if(given_no==records.a_number)
     {
     flag=1;
-    printf("\t\t\t\t\tDETAILS OF ACCOUNT : %d \n",records.a_number);
-    HLINE
+    printf("\n\t\t\t\t\tDETAILS OF ACCOUNT  : %d",records.a_number);
+    printf("\n\t\t\t\t\t========================================================\n");
     SIDETAB
     printf("ACCOUNT NUMBER      : %d\n",records.a_number);
     SIDETAB
@@ -142,15 +153,17 @@ void show()
     printf("ADDRESS             : %s\n",records.address);
     SIDETAB
     printf("BALANCE             : %d\n",records.balance);
-    HLINE
+    printf("\t\t\t\t\t========================================================\n\n");
     fclose(ptr);
     SIDETAB
-    printf("1: MAIN MENU\n");
+    printf("  CHOOSE THE OPTION NOW\n");
     SIDETAB
-    printf("2: SEARCH ANOTHER\n");
+    printf("  1: MAIN MENU\n");
     SIDETAB
-    printf("0: EXIT\n\n");
-    printf("\t\t\t\t\tENTER YOUR CHOICE : ");
+    printf("  2: SEARCH ANOTHER\n");
+    SIDETAB
+    printf("  0: EXIT\n\n");
+    printf("\t\t\t\t\t  ENTER YOUR CHOICE : ");
     int x;
     scanf("%d",&x);
     if(x==1)
@@ -163,6 +176,7 @@ void show()
     }
     else if(flag==0)
     {
+        system("color C");
         LINE
         SIDETAB
         printf("NO RECORD FOUND !!!!!!");
@@ -170,18 +184,20 @@ void show()
         credits();
     }
 }
+    system("color C");
+    printf("\n");
     SIDETAB
-    printf("NO RECORD FOUND !!!!!!");
-    LINE
+    printf("\t\t NO RECORD FOUND !!!!!!");
+    printf("\n\t\t\t\t\t========================================================\n\n");
     SIDETAB
-    printf("CHOOSE THE OPTIONS NOW\n");
+    printf("  CHOOSE THE OPTION NOW\n");
     SIDETAB
-    printf("1: MAIN MENU\n");
+    printf("  1: MAIN MENU\n");
     SIDETAB
-    printf("2: SEARCH ANOTHER\n");
+    printf("  2: SEARCH ANOTHER\n");
     SIDETAB
-    printf("0: EXIT\n\n");
-    printf("\t\t\t\t\tENTER YOUR CHOICE : ");
+    printf("  0: EXIT\n\n");
+    printf("\t\t\t\t\t  ENTER YOUR CHOICE : ");
     int x;
     scanf("%d",&x);
     if(x==1)
@@ -193,19 +209,19 @@ void show()
         credits();
     }
 
-/* FUNCTION FOR SHOWING DETAILS OF AN ACCOUNT ENDS */
+/****************** END OF FUNCTION FOR SHOWING DETAILS OF AN ACCOUNT **********************/
 
 
 
-/* ADD OR REMOVE FUNCTION */
+/************************** ADD OR REMOVE ACCOUNT FUNCTION :STARTS *************************/
 
 void acc()
 {
     int ac_choice;
     system("cls");
-    NEW
+    NBLOCK
     printf("\t\t\t\t\tENTER THE CHOICE FROM THE OPTIONS BELOW AND PRESS ENTER \n");
-    LINE
+    BLOCK
     SIDETAB
     printf("1: ADD AN ACCOUNT\n");
     SIDETAB
@@ -219,7 +235,7 @@ void acc()
     scanf("%d",&ac_choice);
 
 
- /* NEW ACC CHOICE BLOCK */
+/* BLOCK : FOR NEW ACCOUNT -> INSIDE ADD / REMOVE FUNCTION */
 
             int op;
             acc_re:
@@ -231,6 +247,7 @@ void acc()
             if(ptr==NULL)
             {
                 CLS
+                system("color c");
                 NEW
                 SIDETAB
                 printf("          DATABASE FILE NOT FOUND EXITING !!!!!\n");
@@ -254,6 +271,7 @@ void acc()
                 CLS
                 NEW
                 fclose(ptr);
+                system("COLOR 0F");
                 goto acc_re;
             }
             }
@@ -299,7 +317,7 @@ void acc()
     }
 
 
-/* REMOVING AN ACCOUNT BLOCK */
+/*  BLOCK : REMOVING AN ACCOUNT -> INSIDE ADD/REMOVE FUNCTION */
 
 else if(ac_choice==2)
 
@@ -307,32 +325,39 @@ else if(ac_choice==2)
         FILE *new_data,*old_data;
         int adeleted=0,delopt;
         redelete:
-        system("color 0E");
+		adeleted=0;
+        system("COLOR 0F");
         new_data=fopen("newdata.txt","w");
         old_data=fopen("records.txt","r");
         CLS
         NEW
                 if(old_data==NULL)
                 {
-                system("color 0C");
-                CLS
-                NEW
-                SIDETAB
-                printf("          DATABASE FILE NOT FOUND EXITING !!!!!\n");
-                LINE
-                sleep(1);
-                credits();
+                        fclose(old_data);
+                        fclose(new_data);
+                        remove("newdata.txt");
+                        system("color 0C");
+                        CLS
+                        NEW
+                        SIDETAB
+                        printf("          DATABASE FILE NOT FOUND EXITING !!!!!\n");
+                        LINE
+                        sleep(1);
+                        credits();
                 }
                 else if (new_data==NULL)
-                {
-                system("color 0C");
-                CLS
-                NEW
-                SIDETAB
-                printf("         NEW DATABASE FILE NOT MADE EXITING !!!!!\n");
-                LINE
-                sleep(1);
-                credits();
+                    {
+                    fclose(old_data);
+                    fclose(new_data);
+                    remove("newdata.txt");
+                    system("color 0C");
+                    CLS
+                    NEW
+                    SIDETAB
+                    printf("         NEW DATABASE FILE NOT MADE EXITING !!!!!\n");
+                    LINE
+                    sleep(1);
+                    credits();
                 }
         printf("\t\t\t\t\t\tENTER THE DETAILS BELOW AND PRESS ENTER\n");
         LINE
@@ -367,7 +392,7 @@ else if(ac_choice==2)
                         printf("\n\n\t\t\t\t         YOU ENTERED A WRONG A/c No. OR THE A/c DOES NOT EXISTS");
                         LINE
                         SIDETAB
-                        printf("\t      | CHOOSE THE OPTIONS BELOW |\n\n");
+                        printf("\t       | CHOOSE THE OPTION BELOW |\n\n");
                         SIDETAB
                         printf("1: RETRY\n");
                         SIDETAB
@@ -402,7 +427,7 @@ else if(ac_choice==2)
                         printf("\t   ACCOUNT DELETED SUCCESSFULLY !!!!\n");
                         LINE
                         SIDETAB
-                        printf("\t      | CHOOSE THE OPTIONS BELOW |\n\n");
+                        printf("\t       | CHOOSE THE OPTION BELOW |\n\n");
                         SIDETAB
                         printf("1: DELETE ANOTHER ACCOUNT\n");
                         SIDETAB
@@ -430,7 +455,7 @@ else if(ac_choice==2)
     }
 
 
-/* RETURNING TO MAIN BLOCK */
+/* BLOCK : RETURNING TO MAIN -> INSIDE ADD / REMOVE FUNCTION */
 
 else if(ac_choice==9)
     {
@@ -439,38 +464,37 @@ else if(ac_choice==9)
     main();
     }
 
-/*  EXITING THE PROGRAM */
+/* BLOCK : EXITING THE PROGRAM -> INSIDE ADD / REMOVE FUNCTION */
     else
     {
         credits();
     }
 }
+/**************************** END OF ADD / REMOVE ACCOUNT FUNCTION *************************/
 
 
-
-
-/* CREDITS */
+/********************************* CREDITS DISPLAY FUNCTION ********************************/
 
 void credits()
 {
             CLS
-            NEW
-            system("color 0F");
-            printf("\t\t\t\t\t\t     X  BANK MANAGEMENT SOFTWARE\n\n");
+            NBLOCK
+            system("COLOR 0F");
+            printf("\t\t\t\t\t\t        BANK MANAGEMENT SOFTWARE\n\n");
             printf("\t\t\t\t\t\t   MADE BY : SHARAD RAJ SINGH MAURYA\n");
             printf("\t\t\t\t\t\t    EMAIL ID : mauryablog@gmail.com \n");
             printf("\t\t\t\t\t\t    PROJECT STARTED ON : 08/06/2018 \n");
             printf("\t\t\t\t\t       CREDITS : MYSELF BEACUSE I MADE IT ALONE :)\n");
-            LINE
+            BLOCK
             SIDETAB
             printf("EXITING .................................................\n\n");
-            sleep(4);
+            sleep(3);
             exit(0);
 }
+/****************************** END OF CREDITS DISPLAY FUNCTION ****************************/
 
 
-
-/* LOGIN WINDOWS FUNCTION */
+/********************************** LOGIN WINDOW FUNCTION **********************************/
 
 void login()
 {
@@ -481,70 +505,94 @@ void login()
     int menu_in,sec_key=911;
     int in;
     CLS
-    system("color 0F");
+    system("COLOR 0F");
     redo:
-    NEW
-    printf("\t\t\t\t\t\t      X BANK MANAGEMENT SOFTWARE\n");
-    printf("\t\t\t\t\t\t\t   LOGIN WINDOW\n");
-    printf("\n\t\t\t\t\tENTER THE LOGIN PASSWORD AND PRESS ENTER \n");
-    LINE
-    printf("\n\t\t\t\t\tENTER YOUR PASSWORD : ");
+    NBLOCK
+    printf("\t\t\t\t\t\t        BANK MANAGEMENT SOFTWARE\n");
+    BLOCK
+    printf("\t\t\t\t\t\t\t    LOGIN WINDOW\n\n");
+    printf("\n\t\t\t\t\tLOGIN PASSWORD : ");
     scanf("%s",&pass);
     if(strcmp(pass,old_pass)==0)
+    {
+    system("color 0A");
     CLS
+    NBLOCK
+    printf("\t\t\t\t\t\t            ACCESS GRANTED !!\n");
+    BLOCK
+    sleep(1);
+    CLS
+    }
     else
     {
     system("color 0C");
     CLS
-    NEW
+    NBLOCK
+    printf("\t\t\t\t\t\t             ACCESS DENIED !!\n \n");
     SIDETAB
-    printf("          PASSWORD DID NOT MATCHED !!!!  EXITING\n\n");
-    printf("\t\t\t\t\t\t     X  BANK MANAGEMENT SOFTWARE\n\n");
-    printf("\t\t\t\t\t\t   MADE BY : SHARAD RAJ SINGH MAURYA\n");
-    printf("\t\t\t\t\t\t    EMAIL ID : mauryablog@gmail.com \n");
-    printf("\t\t\t\t\t\t    PROJECT STARTED ON : 08/06/2018 \n");
-    printf("\t\t\t\t\t       CREDITS : MYSELF BEACUSE I MADE IT ALONE :)\n");
-    LINE
+    printf("\t       PASSWORD DID NOT MATCHED !!!!\n");
+    BLOCK
     SIDETAB
-    printf("EXITING .................................................\n\n");
-    sleep(4);
-    exit(0);
+    printf("  CHOOSE THE OPTION NOW\n");
+    SIDETAB
+    printf("  1: RETRY\n");
+    SIDETAB
+    printf("  0: EXIT\n\n");
+    printf("\t\t\t\t\t  ENTER YOUR CHOICE : ");
+    int log_choice;
+    scanf("%d",&log_choice);
+    if(log_choice==1)
+        {
+             CLS
+             goto redo;
+        }
+    else
+    credits();
     }
     }
     else
     CLS;
 }
+/******************************* END OF LOGIN WINDOW FUNCTION ******************************/
 
 
+/************************ FUNCTION FOR SHOWING DETAILS OF ALL ACCOUNTS *********************/
 
-
-/* FOR SHOWING ALL ACCOUNTS */
 void lists()
 {
-    recheck:
+    int flag2=0;
     ptr=fopen("records.txt","r");
     int given_no,flag;
     CLS
-    system("color B");
-    NEW
-    printf("\t\t\t\t\t\t         ACCOUNTS LIST WIZARD   \n");
+    system("COLOR 0F");
+    printf("\n\n\n\n\n\t\t\t\t   ");
+    printf("=====================================================================\n\n");
+    printf("\t\t\t\t\t\t          ACCOUNTS LIST WIZARD   \n\n");
+    printf("\t\t\t\t   ");
+    printf("=====================================================================\n\n");
+    printf("\t\t\t\t   ");
+    puts("A\c\t\tHOLDER\t\tMOB No. \t ADDRESS \t BALANCE\n");
     while(fscanf(ptr,"%d %s %d %s %d",&records.a_number,&records.name,&records.m_no,&records.address,&records.balance)!=EOF)
     {
-    flag=1;
-    LINE
-    SIDETAB
-    printf("ACCOUNT NUMBER      : %d\n",records.a_number);
-    SIDETAB
-    printf("ACCOUNT HOLDER NAME : %s\n",records.name);
-    SIDETAB
-    printf("CONTACT NUMBER      : %d\n",records.m_no);
-    SIDETAB
-    printf("ADDRESS             : %s\n",records.address);
-    SIDETAB
-    printf("BALANCE             : %d\n",records.balance);
+    printf("\n");
+    flag2=1;
+    printf("\t\t\t\t   ");
+    printf("%d\t%s\t%d\t%s\t%d",records.a_number,records.name,records.m_no,records.address,records.balance);
+    }
+    if(flag2==0)
+    {
+        SIDETAB
+        system("color C");
+        printf("NO RECORDS FOUND !\n");
     }
     fclose(ptr);
-    HLINE
+    printf("\t\t\t\t   ");
+    printf("\n");
+    printf("\t\t\t\t   ");
+    printf("=====================================================================\n");
+    printf("\n");
+    SIDETAB
+    printf("CHOOSE THE OPTION NOW\n");
     SIDETAB
     printf("1: MAIN MENU\n");
     SIDETAB
@@ -559,25 +607,22 @@ void lists()
     else
         credits();
     }
-/* ALL ACC FUN ENDS */
+/*********************END OF FUNCTION FOR SHOWING DETAILS OF ALL ACCOUNTS ******************/
 
 
-/* LOADING */
+/************************************* LOADING ANIMATION ***********************************/
 
 void loading()
 {
     if(loginflag==0)
     {
     int i;
-    system("color 0F");
+    system("COLOR 09");
     CLS
-    NEW
-    printf("\t\t\t\t\t\t WELCOME TO X BANK MANAGEMENT SOFTWARE\n");
-    LINE
-    SIDETAB
-    printf("\t\t\t   _____");
-    SIDETAB
-    printf("\t\t\t\t\t\t\t\t   LOADING ");
+    NBLOCK
+    printf("\t\t\t\t\t\t        BANK MANAGEMENT SOFTWARE\n");
+    BLOCK
+    printf("\t\t\t\t\t\t\t   LOADING ");
     for(i=5;i>=0;i--)
     {
     if(i==0)
@@ -588,11 +633,13 @@ void loading()
     else
     {
         sleep(1);
-        printf("%c",219);
+        printf("%c",254);
     }
     }
     }
     else
     CLS
 }
+
+/****************************** ENDS OF LOADING ANIMATION FUNCTION *************************/
 </pre>
