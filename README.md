@@ -94,12 +94,12 @@ void solidline()
 
 typedef struct
 {
-  int a_number;						/* FOR STORING THE ACCOUNT NUMBER                */
-  char name[30];					/* FOR STORING THE ACCOUNT NUMBER                */
-  int m_no;                         /* FOR STORING THE HOLDER NAME                   */
-  char address[100];                /* FOR STORING THE HOLDER ADDRESS                */
-  int balance;						/* FOR STORING THE BALANCE DEPOSITED             */
-  int a_chk;						/* FOR STORING THE CHECKING ACCOUNT NUMBER       */
+  int a_number;			 /* FOR STORING THE ACCOUNT NUMBER                */
+  char name[30];		 /* FOR STORING THE ACCOUNT NUMBER                */
+  int m_no;              /* FOR STORING THE HOLDER NAME                   */
+  char address[100];     /* FOR STORING THE HOLDER ADDRESS                */
+  int balance;			 /* FOR STORING THE BALANCE DEPOSITED             */
+  int a_chk;			 /* FOR STORING THE CHECKING ACCOUNT NUMBER       */
 }accounts;
 accounts records;
 
