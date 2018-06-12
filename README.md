@@ -1,8 +1,9 @@
 # BANK MANAGEMENT SOFTWARE
 # ALL RIGHTS RESERVED
 ## PROGRAMMING LANGUAGE USED : ANSI C
-### :red_circle: CURRENTLY UNDER DEVELOPMEMT :red_circle:
+### :orange_circle: CURRENTLY FINAL TESTING STAGE :orange_circle:
 ### :warning: Use `Code::Blocks` IDE for this project :warning:
+#### DOWNLOAD EXE HERE [DOWNLOAD](https://drive.google.com/open?id=1q5xcjj9duV-VLUooc2ttd6D9N-_tqdNh)
 
 ```c
 /******************************* BANK MANAGEMENT SOFTWARE  *********************************/
