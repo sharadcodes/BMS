@@ -1,6 +1,7 @@
 /******************************* BANK MANAGEMENT SOFTWARE  *********************************/
 
 /********************************** FILE INCLUSION *****************************************/
+
 #include<windows.h>
 #include<stdio.h>
 #include<string.h>
@@ -86,12 +87,12 @@ void solidline()
 
 typedef struct
 {
-  int a_number;						/* FOR STORING THE ACCOUNT NUMBER                */
-  char name[30];					/* FOR STORING THE ACCOUNT NUMBER                */
-  int m_no;							/* FOR STORING THE HOLDER NAME                   */
-  char address[100];				/* FOR STORING THE HOLDER ADDRESS                */
-  int balance;						/* FOR STORING THE BALANCE DEPOSITED             */
-  int a_chk;						/* FOR STORING THE CHECKING ACCOUNT NUMBER       */
+  int a_number;                 /* FOR STORING THE ACCOUNT NUMBER                */
+  char name[30];                /* FOR STORING THE ACCOUNT NUMBER                */
+  int m_no;                     /* FOR STORING THE HOLDER NAME                   */
+  char address[100];            /* FOR STORING THE HOLDER ADDRESS                */
+  int balance;                  /* FOR STORING THE BALANCE DEPOSITED             */
+  int a_chk;                    /* FOR STORING THE CHECKING ACCOUNT NUMBER       */
 }accounts;
 accounts records;
 
@@ -133,18 +134,18 @@ int main()
     scanf("%d",&op);
     switch(op)
     {
-    case 1: 	acc();
+    case 1:     acc();
         break;
-	case 2:     withdraw();
+    case 2:     withdraw();
         break;
     case 3:     deposit();
         break;
     case 4:     show();
         break;
     case 5:     lists();
-		break;
+        break;
     case 6:     modify();
-		break;
+        break;
     case 9:
          {
                 loginflag=0;
@@ -152,7 +153,7 @@ int main()
                 system("color 0F");
                 goto options;
          }
-    case 0: 	credits();
+    case 0:     credits();
         break;
     default:
         {
@@ -374,7 +375,7 @@ else if(ac_choice==2)
         FILE *new_data,*old_data;
         int adeleted=0,delopt;
         redelete:
-		adeleted=0;
+        adeleted=0;
         system("COLOR 0F");
         new_data=fopen("newdata.txt","w");
         old_data=fopen("records.txt","r");
@@ -698,7 +699,7 @@ void withdraw()
             FILE *newwith_data,*pwith_data;
         int awithdraw=0,withopt;
         rewithd:
-		awithdraw=0;
+        awithdraw=0;
         system("COLOR 0F");
         newwith_data=fopen("withdraw.txt","w");
         pwith_data=fopen("records.txt","r");
@@ -848,7 +849,7 @@ void deposit()
         FILE *newdep_data,*pdep_data;
         int adeposit=0,depopt;
         redeposit:
-		adeposit=0;
+        adeposit=0;
         system("COLOR 0F");
         newdep_data=fopen("newdep.txt","w");
         pdep_data=fopen("records.txt","r");
@@ -998,7 +999,7 @@ void modify()
     FILE *mod_data,*pre_data;
         int amodified=0,modopt;
         remodify:
-		amodified=0;
+        amodified=0;
         system("COLOR 0F");
         mod_data=fopen("newmod.txt","w");
         pre_data=fopen("records.txt","r");

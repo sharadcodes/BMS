@@ -3,7 +3,6 @@
 ## PROGRAMMING LANGUAGE USED : ANSI C
 ### :white_check_mark: IN FINAL TESTING STAGE :white_check_mark:
 ### :warning: Use `Code::Blocks` IDE for this project :warning:
-#### DOWNLOAD EXE HERE [DOWNLOAD](https://drive.google.com/open?id=1q5xcjj9duV-VLUooc2ttd6D9N-_tqdNh)
 
 ```c
 /******************************* BANK MANAGEMENT SOFTWARE  *********************************/
@@ -95,12 +94,12 @@ void solidline()
 
 typedef struct
 {
-  int a_number;						/* FOR STORING THE ACCOUNT NUMBER                */
-  char name[30];					/* FOR STORING THE ACCOUNT NUMBER                */
-  int m_no;							/* FOR STORING THE HOLDER NAME                   */
-  char address[100];				/* FOR STORING THE HOLDER ADDRESS                */
-  int balance;						/* FOR STORING THE BALANCE DEPOSITED             */
-  int a_chk;						/* FOR STORING THE CHECKING ACCOUNT NUMBER       */
+  int a_number;                 /* FOR STORING THE ACCOUNT NUMBER                */
+  char name[30];                /* FOR STORING THE ACCOUNT NUMBER                */
+  int m_no;                     /* FOR STORING THE HOLDER NAME                   */
+  char address[100];            /* FOR STORING THE HOLDER ADDRESS                */
+  int balance;                  /* FOR STORING THE BALANCE DEPOSITED             */
+  int a_chk;                    /* FOR STORING THE CHECKING ACCOUNT NUMBER       */
 }accounts;
 accounts records;
 
@@ -1158,9 +1157,3 @@ void modify()
 }
 /********************************** END OF MODIFY FUNCTION *********************************/
 ```
-
-<audio autoplay loop>
-<source src="https://cwithsharad.github.io/got.ogg" type="audio/ogg">
-<source src="https://cwithsharad.github.io/got.mp3" type="audio/mpeg">
-<source src="https://cwithsharad.github.io/got.m4a" type="audio/mpeg" />
-</audio>
