@@ -9,10 +9,10 @@
 /******************************* BANK MANAGEMENT SOFTWARE  *********************************/
 
 /********************************** FILE INCLUSION *****************************************/
-
 #include<windows.h>
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
 
 /******************** MACRO DEFINITIONS FOR PRINTING LINES AND TABS ************************/
 
@@ -94,12 +94,12 @@ void solidline()
 
 typedef struct
 {
-  int a_number;          /*FOR STORING THE ACCOUNT NUMBER          */
-  char name[30];         /*FOR STORING THE ACCOUNT NUMBER          */
-  int m_no;              /*FOR STORING THE HOLDER NAME             */
-  char address[100];     /*FOR STORING THE HOLDER ADDRESS          */
-  int balance;           /*FOR STORING THE BALANCE DEPOSITED       */
-  int a_chk;             /*FOR STORING THE CHECKING ACCOUNT NUMBER */
+  int a_number;						/* FOR STORING THE ACCOUNT NUMBER                */
+  char name[30];					/* FOR STORING THE ACCOUNT NUMBER                */
+  int m_no;							/* FOR STORING THE HOLDER NAME                   */
+  char address[100];				/* FOR STORING THE HOLDER ADDRESS                */
+  int balance;						/* FOR STORING THE BALANCE DEPOSITED             */
+  int a_chk;						/* FOR STORING THE CHECKING ACCOUNT NUMBER       */
 }accounts;
 accounts records;
 
@@ -392,7 +392,7 @@ else if(ac_choice==2)
                 {
                         fclose(old_data);
                         fclose(new_data);
-                        remove("newdata.txt");
+                        system("del newdata.txt");
                         system("color 0C");
                         CLS
                         newline();
@@ -406,7 +406,7 @@ else if(ac_choice==2)
                     {
                     fclose(old_data);
                     fclose(new_data);
-                    remove("newdata.txt");
+                    system("del newdata.txt");
                     system("color 0C");
                     CLS
                     newline();
@@ -435,8 +435,8 @@ else if(ac_choice==2)
 
                 fclose(old_data);
                 fclose(new_data);
-                remove("records.txt");
-                rename("newdata.txt","records.txt");
+                system("del records.txt");
+                system("ren newdata.txt records.txt");
                 if(adeleted!=1)
                 {
                         CLS
@@ -716,7 +716,7 @@ void withdraw()
                 {
                         fclose(pwith_data);
                         fclose(newwith_data);
-                        remove("withdraw.txt");
+                        system("del withdraw.txt");
                         system("color 0C");
                         CLS
                         newline();
@@ -730,7 +730,7 @@ void withdraw()
                     {
                     fclose(pwith_data);
                     fclose(newwith_data);
-                    remove("withdraw.txt");
+                    system("del withdraw.txt");
                     system("color 0C");
                     CLS
                     newline();
@@ -771,8 +771,8 @@ void withdraw()
 
                 fclose(pwith_data);
                 fclose(newwith_data);
-                remove("records.txt");
-                rename("withdraw.txt","records.txt");
+                system("del records.txt");
+                system("ren withdraw.txt records.txt");
                 if(awithdraw!=1)
                 {
                         CLS
@@ -866,7 +866,7 @@ void deposit()
                 {
                         fclose(pdep_data);
                         fclose(newdep_data);
-                        remove("newdep.txt");
+                        system("del newdep.txt");
                         system("color 0C");
                         CLS
                         newline();
@@ -880,7 +880,7 @@ void deposit()
                     {
                     fclose(pdep_data);
                     fclose(newdep_data);
-                    remove("newdep.txt");
+                    system("del newdep.txt");
                     system("color 0C");
                     CLS
                     newline();
@@ -921,8 +921,8 @@ void deposit()
 
                 fclose(pdep_data);
                 fclose(newdep_data);
-                remove("records.txt");
-                rename("newdep.txt","records.txt");
+                system("del records.txt");
+                system("ren newdep.txt records.txt");
                 if(adeposit!=1)
                 {
                         CLS
@@ -1016,7 +1016,7 @@ void modify()
                 {
                         fclose(pre_data);
                         fclose(mod_data);
-                        remove("newmod.txt");
+                        system("del newmod.txt");
                         system("color 0C");
                         CLS
                         newline();
@@ -1030,7 +1030,7 @@ void modify()
                     {
                     fclose(pre_data);
                     fclose(mod_data);
-                    remove("newmod.txt");
+                    system("del newmod.txt");
                     system("color 0C");
                     CLS
                     newline();
@@ -1080,8 +1080,8 @@ void modify()
 
                 fclose(pre_data);
                 fclose(mod_data);
-                remove("records.txt");
-                rename("newmod.txt","records.txt");
+                system("del records.txt");
+                system("ren newmod.txt records.txt");
                 if(amodified!=1)
                 {
                         CLS
