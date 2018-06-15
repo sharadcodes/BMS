@@ -1,5 +1,4 @@
 # BANK MANAGEMENT SOFTWARE
-# ALL RIGHTS RESERVED
 ## PROGRAMMING LANGUAGE USED : ANSI C
 ### :white_check_mark: IN FINAL TESTING STAGE :white_check_mark:
 ### :warning: Use `Code::Blocks` IDE for this project :warning:
