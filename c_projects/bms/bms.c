@@ -22,6 +22,8 @@ void loading(void);        /* FOR THE LODING ANIMATION AT THE START  */
 void modify(void);         /* FOR MODIFICATION OF AN ACCOUNT DETAILS */
 void withdraw(void);       /* FOR MODIFICATION OF AN ACCOUNT DETAILS */
 void deposit(void);        /* FOR MODIFICATION OF AN ACCOUNT DETAILS */
+void wait(void);           /* FOR DELAY AT REQUIRED PLACES           */
+void waitlong(void);       /* FOR LONG DELAY AT REQUIRED PLACES      */
 
 /*************************** FUNCTIONS FOR PRINTING LINES **********************************/
 
@@ -134,18 +136,18 @@ int main()
     scanf("%d",&op);
     switch(op)
     {
-    case 1:     acc();
+    case 1: 	acc();
         break;
-    case 2:     withdraw();
+	case 2:     withdraw();
         break;
     case 3:     deposit();
         break;
     case 4:     show();
         break;
     case 5:     lists();
-        break;
+		break;
     case 6:     modify();
-        break;
+		break;
     case 9:
          {
                 loginflag=0;
@@ -153,13 +155,13 @@ int main()
                 system("color 0F");
                 goto options;
          }
-    case 0:     credits();
+    case 0: 	credits();
         break;
     default:
         {
         SIDETAB
         printf("ENTER A VALID OPTION !");
-        sleep(1);
+        wait();
         CLS
         goto options;
         }
@@ -316,7 +318,7 @@ void acc()
                 system("color 0C");
                 SIDETAB
                 printf("ACCOUNT NUMBER ALREADY EXISTS !  PLEASE WAIT !");
-                sleep(1);
+                wait();
                 CLS
                 newline();
                 fclose(ptr);
@@ -375,7 +377,7 @@ else if(ac_choice==2)
         FILE *new_data,*old_data;
         int adeleted=0,delopt;
         redelete:
-        adeleted=0;
+		adeleted=0;
         system("COLOR 0F");
         new_data=fopen("newdata.txt","w");
         old_data=fopen("records.txt","r");
@@ -392,7 +394,7 @@ else if(ac_choice==2)
                         SIDETAB
                         printf("          DATABASE FILE NOT FOUND EXITING !!!!!\n");
                         line();
-                        sleep(1);
+                        wait();
                         credits();
                 }
                 else if (new_data==NULL)
@@ -406,7 +408,7 @@ else if(ac_choice==2)
                     SIDETAB
                     printf("         NEW DATABASE FILE NOT MADE EXITING !!!!!\n");
                     line();
-                    sleep(1);
+                    wait();
                     credits();
                 }
         printf("\t\t\t\t\t\tENTER THE DETAILS BELOW AND PRESS ENTER\n");
@@ -538,7 +540,7 @@ void credits()
             solidline();
             SIDETAB
             printf("EXITING .................................................\n\n");
-            sleep(3);
+            waitlong();
             exit(0);
 }
 /****************************** END OF CREDITS DISPLAY FUNCTION ****************************/
@@ -570,7 +572,7 @@ void login()
     newsolidline();
     printf("\t\t\t\t\t\t            ACCESS GRANTED !!\n");
     solidline();
-    sleep(1);
+    wait();
     CLS
     }
     else
@@ -678,11 +680,11 @@ void loading()
     if(i==0)
     {
         printf("\n\n\t\t\t\t\t\t      LOADED SUCCESFULY !!!!");
-        sleep(1);
+        wait();
     }
     else
     {
-        sleep(1);
+        wait();
         printf("%c",254);
     }
     }
@@ -699,7 +701,7 @@ void withdraw()
             FILE *newwith_data,*pwith_data;
         int awithdraw=0,withopt;
         rewithd:
-        awithdraw=0;
+		awithdraw=0;
         system("COLOR 0F");
         newwith_data=fopen("withdraw.txt","w");
         pwith_data=fopen("records.txt","r");
@@ -716,7 +718,7 @@ void withdraw()
                         SIDETAB
                         printf("          DATABASE FILE NOT FOUND EXITING !!!!!\n");
                         line();
-                        sleep(1);
+                        wait();
                         credits();
                 }
                 else if (newwith_data==NULL)
@@ -730,7 +732,7 @@ void withdraw()
                     SIDETAB
                     printf("         NEW DATABASE FILE NOT MADE EXITING !!!!!\n");
                     line();
-                    sleep(1);
+                    wait();
                     credits();
                 }
         printf("\t\t\t\t\t\tENTER THE DETAILS BELOW AND PRESS ENTER\n");
@@ -849,7 +851,7 @@ void deposit()
         FILE *newdep_data,*pdep_data;
         int adeposit=0,depopt;
         redeposit:
-        adeposit=0;
+		adeposit=0;
         system("COLOR 0F");
         newdep_data=fopen("newdep.txt","w");
         pdep_data=fopen("records.txt","r");
@@ -866,7 +868,7 @@ void deposit()
                         SIDETAB
                         printf("          DATABASE FILE NOT FOUND EXITING !!!!!\n");
                         line();
-                        sleep(1);
+                        wait();
                         credits();
                 }
                 else if (newdep_data==NULL)
@@ -880,7 +882,7 @@ void deposit()
                     SIDETAB
                     printf("         NEW DATABASE FILE NOT MADE EXITING !!!!!\n");
                     line();
-                    sleep(1);
+                    wait();
                     credits();
                 }
         printf("\t\t\t\t\t\tENTER THE DETAILS BELOW AND PRESS ENTER\n");
@@ -999,7 +1001,7 @@ void modify()
     FILE *mod_data,*pre_data;
         int amodified=0,modopt;
         remodify:
-        amodified=0;
+		amodified=0;
         system("COLOR 0F");
         mod_data=fopen("newmod.txt","w");
         pre_data=fopen("records.txt","r");
@@ -1016,7 +1018,7 @@ void modify()
                         SIDETAB
                         printf("          DATABASE FILE NOT FOUND EXITING !!!!!\n");
                         line();
-                        sleep(1);
+                        wait();
                         credits();
                 }
                 else if (mod_data==NULL)
@@ -1030,7 +1032,7 @@ void modify()
                     SIDETAB
                     printf("         NEW DATABASE FILE NOT MADE EXITING !!!!!\n");
                     line();
-                    sleep(1);
+                    wait();
                     credits();
                 }
         printf("\t\t\t\t\t\tENTER THE DETAILS BELOW AND PRESS ENTER\n");
@@ -1149,3 +1151,24 @@ void modify()
 
 }
 /********************************** END OF MODIFY FUNCTION *********************************/
+
+
+/*************************************** WAIT FUNCTIONS ************************************/
+
+void wait(void)
+{
+  long double i;
+  for(i=0;i<20000000;i++)
+  {
+    continue;
+  }
+}
+
+void waitlong(void)
+{
+  int i;
+  for(i=0;i<900000000;i++)
+  {
+    continue;
+  }
+}
