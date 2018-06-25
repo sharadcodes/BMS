@@ -5,5 +5,5 @@
 
 ![Loading menu](https://cwithsharad.github.io/BMS/loading.PNG)
 ![Login menu](https://cwithsharad.github.io/BMS/login_screen.PNG)
-![Granted message](https://cwithsharad.github.io/BMS/granted.PNG)
+![Granted message](https://cwithsharad.github.io/BMS/granted.png)
 ![Interface](https://cwithsharad.github.io/BMS/interface.PNG)
