@@ -2,7 +2,7 @@
 ## PROGRAMMING LANGUAGE USED : ANSI C
 ### :warning: Use `Code::Blocks` IDE for this project :warning:
 
-## DOWNLOAD PROJECT EXECUTABLE FILE HERE : [CLICK HERE](https://drive.google.com/open?id=1SvvYNmjLMAn8rZY-x9-1-1y3SQNL3bXo)
+## DOWNLOAD PROJECT EXECUTABLE FILE HERE : [CLICK HERE](https://drive.google.com/open?id=1vqwaYof7XltueEMpWtIIrdzeDVHIE8kO)
 
 #### LOADING SCREEN ANIMATION
 ![Loading menu](https://cwithsharad.github.io/BMS/loading.PNG)
