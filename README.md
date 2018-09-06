@@ -5,10 +5,10 @@
 ## DOWNLOAD PROJECT EXECUTABLE FILE HERE : [CLICK HERE](https://drive.google.com/open?id=1vqwaYof7XltueEMpWtIIrdzeDVHIE8kO)
 
 #### LOADING SCREEN ANIMATION
-![Loading menu](https://cwithsharad.github.io/BMS/loading.PNG)
+![Loading menu](https://sharadcodes.github.io/BMS/loading.PNG)
 #### LOGIN SCREEN
-![Login menu](https://cwithsharad.github.io/BMS/login_screen.PNG)
+![Login menu](https://sharadcodes.github.io/BMS/login_screen.PNG)
 #### ACCESS GRANTED MESSAGE ON CORRECT PASSWORD
-![Granted message](https://cwithsharad.github.io/BMS/granted.png)
+![Granted message](https://sharadcodes.github.io/BMS/granted.png)
 #### MAIN INTERFACE
-![Interface](https://cwithsharad.github.io/BMS/interface.PNG)
+![Interface](https://sharadcodes.github.io/BMS/interface.PNG)
