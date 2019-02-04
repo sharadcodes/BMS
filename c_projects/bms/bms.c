@@ -20,8 +20,8 @@ void login(void);          /* FOR THE LOGIN SCREEN                   */
 void credits(void);        /* FOR THE DISPLAY OF CREDITS ON EXIT     */
 void loading(void);        /* FOR THE LODING ANIMATION AT THE START  */
 void modify(void);         /* FOR MODIFICATION OF AN ACCOUNT DETAILS */
-void withdraw(void);       /* FOR MODIFICATION OF AN ACCOUNT DETAILS */
-void deposit(void);        /* FOR MODIFICATION OF AN ACCOUNT DETAILS */
+void withdraw(void);       /* FOR WITHDRAWING FROM AN ACCOUNT        */
+void deposit(void);        /* FOR DEPOSITING IN AN ACCOUNT           */
 void wait(void);           /* FOR DELAY AT REQUIRED PLACES           */
 void waitlong(void);       /* FOR LONG DELAY AT REQUIRED PLACES      */
 
