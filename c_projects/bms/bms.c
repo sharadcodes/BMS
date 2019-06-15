@@ -623,7 +623,7 @@ void lists()
     printf("\t\t\t\t   ");
     printf("=====================================================================\n\n");
     printf("\t\t\t\t   ");
-    puts("A\c\t\tHOLDER\t\tMOB No. \t ADDRESS \t BALANCE\n");
+    puts("A\\c\t\tHOLDER\t\tMOB No. \t ADDRESS \t BALANCE\n");
     while(fscanf(ptr,"%d %s %d %s %d",&records.a_number,&records.name,&records.m_no,&records.address,&records.balance)!=EOF)
     {
     printf("\n");
